@@ -1,0 +1,21 @@
+# ignorar arquivos swap do vim
+*~
+
+# ignorar arquivos de swap do kate
+*.kate-swp
+
+# ignorar arquivos compilados binários
+*.o
+
+# ignorar executaveis
+*.run
+*.out
+
+# ignorar bibliotecas estáticas
+*.a
+
+# ignorar pastas dSYM
+*.dSYM
+
+# ignorar arquivos DS_Store do Mac
+*.DS_Store
