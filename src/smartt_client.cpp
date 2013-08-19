@@ -6,6 +6,7 @@
 */
 
 #include "smartt_client.h"
+#include "lexical_cast.h"
 
 #include <algorithm>
 #include <sstream>
@@ -118,6 +119,19 @@ void appendStringParameter(vector<string> &message, const string &parameter_name
     }
 }
 
+void appendCharParameter(vector<string> &message, const string &parameter_name, char parameter_value, bool optional = true) {
+    if (parameter_value == 0)
+    {
+        if (!optional) {
+            throw SmarttClientException("Parameter '" + parameter_name + "' can't be empty!");
+        }
+    }
+    else
+    {
+        message.push_back( parameter_name + "=" + parameter_value );
+    }
+}
+
 void appendUnsignedIntegerParameter(vector<string> &message, const string &parameter_name, const unsigned int parameter_value, bool optional = true) {
     ostringstream ss;
     ss << parameter_value;
@@ -193,8 +207,8 @@ void appendDatetimeParameter(vector<string> &message, const string &parameter_na
     appendDateOrDatetimeParameter(message, parameter_name, parameter_value, true, optional);
 }
 
-void appendDateParameter(vector<string> &message, const string &parameter_name, const string &parameter_value) {
-    appendDateOrDatetimeParameter(message, parameter_name, parameter_value, false, false);
+void appendDateParameter(vector<string> &message, const string &parameter_name, const string &parameter_value, bool optional = false) {
+    appendDateOrDatetimeParameter(message, parameter_name, parameter_value, false, optional);
 }
 
 
@@ -280,6 +294,7 @@ vector< map<string,string> > formatListOfMapsResponse(const vector<string> &valu
 /*****************************************************************************
     Smartt messages attributes lists
 *****************************************************************************/
+/*
 vector<string> get_client_attributes = {
     "natural_person_or_legal_person",
     "name_or_corporate_name",
@@ -414,6 +429,42 @@ vector<string> get_available_limits_attributes = {
     "margin_limit"
 };
 
+vector<string> get_client_brokerages_attributes = {
+    "brokerage_id",
+    "brokerage_login"
+};
+
+vector<string> get_investments_attributes = {
+    "name",
+    "code",
+    "brokerage_id",
+    "setup_code",
+    "is_real",
+    "initial_datetime",
+    "final_datetime"
+};
+
+vector<string> get_report_attributes = {
+    "investment_code",
+    "brokerage_id",
+    "setup_code",
+    "initial_datetime",
+    "final_datetime",
+    "number_of_days"
+};
+
+vector<string> get_setups_attributes = {
+    "name",
+    "code",
+    "initial_capital",
+    "slippage",
+    "absolute_brokerage_tax",
+    "percentual_brokerage_tax",
+    "position_trading_tax",
+    "position_liquidation_tax"
+}
+*/
+
 /*****************************************************************************
     Smartt messages enum parameters
 *****************************************************************************/
@@ -471,288 +522,6 @@ vector<string> validity_types = {
 /*****************************************************************************
     Smartt functions
 *****************************************************************************/
-string SmarttClient::login(const string &username, const string &password) {
-    vector<string> message;
 
-    message.push_back("login");
-
-    appendStringParameter(message, "s10i_login", username);
-    appendStringParameter(message, "s10i_password", password);
-
-    vector<string> response = smarttFunction(message);
-    if (response.size() == 1)
-    {
-        return response[0];
-    } else {
-        throw SmarttClientException("Invalid response for 'login'");
-    }
-}
-
-string SmarttClient::logout() {
-    vector<string> message;
-
-    message.push_back("logout");
-
-    vector<string> response = smarttFunction(message);
-    if (response.size() == 1)
-    {
-        return response[0];
-    } else {
-        throw SmarttClientException("Invalid response for 'logout'");
-    }
-}
-
-string SmarttClient::logged() {
-    vector<string> message;
-
-    message.push_back("logged");
-
-    vector<string> response = smarttFunction(message);
-    if (response.size() == 1)
-    {
-        return response[0];
-    } else {
-        throw SmarttClientException("Invalid response for 'logged'");
-    }
-}
-
-map<string,string> SmarttClient::getClient(const vector<string> &attributes) {
-    vector<string> message;
-
-    message.push_back("get_client");
-
-    appendAttributes(message, attributes, get_client_attributes);
-
-    vector<string> response = smarttFunction(message);
-
-    return formatMapResponse(response, attributes, get_client_attributes);
-}
-
-string SmarttClient::getTime() {
-    vector<string> message;
-
-    message.push_back("get_time");
-
-    vector<string> response = smarttFunction(message);
-    if (response.size() == 1)
-    {
-        return response[0];
-    } else {
-        throw SmarttClientException("Invalid response for 'get_time'");
-    }
-}
-
-map<string,string> SmarttClient::getStock(const string &stock_code, const string &market_name, const vector<string> &attributes) {
-    vector<string> message;
-
-    message.push_back("get_stock");
-
-    appendStringParameter(message, "stock_code", stock_code, false);
-    appendEnumParameter(message, "market_name", market_name, market_names);
-    appendAttributes(message, attributes, get_stock_attributes);
-
-    vector<string> response = smarttFunction(message);
-
-    return formatMapResponse(response, attributes, get_stock_attributes);
-}
-
-string SmarttClient::sendOrder(const string &investment_code, const unsigned int brokerage_id, const bool &order_type, const string &stock_code, const string &market_name, const unsigned int number_of_stocks, const float price, const string &validity_type, const string &validity) {
-    vector<string> message;
-
-    message.push_back("send_order");
-
-    appendStringParameter(message, "investment_code", investment_code, false);
-    appendUnsignedIntegerParameter(message, "brokerage_id",  brokerage_id, true);
-    appendBooleanParameter(message, "order_type", order_type);
-    appendStringParameter(message, "stock_code", stock_code, false);
-    appendEnumParameter(message, "market_name", market_name, market_names);
-    appendUnsignedIntegerParameter(message, "number_of_stocks", number_of_stocks, false);
-    appendFloatParameter(message, "price", price, false);
-    appendEnumParameter(message, "validity_type", validity_type, validity_types);
-    if (validity_type == "DE")
-    {
-        appendDateParameter(message, "validity", validity);
-    }
-
-    vector<string> response = smarttFunction(message);
-
-    return response[1];
-}
-
-bool SmarttClient::cancelOrder(const string &order_id) {
-    vector<string> message;
-
-    message.push_back("cancel_order");
-
-    appendStringParameter(message, "order_id", order_id, false);
-
-    vector<string> response = smarttFunction(message);
-
-    return true;
-}
-
-bool SmarttClient::changeOrder(const string &order_id, const unsigned int new_number_of_stocks, const float new_price) {
-    vector<string> message;
-
-    message.push_back("change_order");
-
-    appendStringParameter(message, "order_id", order_id, false);
-    appendUnsignedIntegerParameter(message, "new_number_of_stocks", new_number_of_stocks, true);
-    appendFloatParameter(message, "new_price", new_price, true);
-
-    vector<string> response = smarttFunction(message);
-
-    return true;
-}
-
-string SmarttClient::sendStopOrder(const string &investment_code, const unsigned int brokerage_id, const bool order_type, const bool stop_order_type, const string &stock_code, const string &market_name, const unsigned int number_of_stocks, const float stop_price, const float limit_price, const string &validity, const bool valid_after_market) {
-    vector<string> message;
-
-    message.push_back("send_stop_order");
-
-    appendStringParameter(message, "investment_code", investment_code, false);
-    appendUnsignedIntegerParameter(message, "brokerage_id",  brokerage_id, true);
-    appendBooleanParameter(message, "order_type", order_type);
-    appendBooleanParameter(message, "stop_order_type", stop_order_type);
-    appendStringParameter(message, "stock_code", stock_code, false);
-    appendEnumParameter(message, "market_name", market_name, market_names);
-    appendUnsignedIntegerParameter(message, "number_of_stocks", number_of_stocks, false);
-    appendFloatParameter(message, "stop_price", stop_price, false);
-    appendFloatParameter(message, "limit_price", limit_price, false);
-    appendDateParameter(message, "validity", validity);
-    appendBooleanParameter(message, "valid_after_market", valid_after_market);
-
-    vector<string> response = smarttFunction(message);
-
-    return response[1];
-}
-
-bool SmarttClient::cancelStopOrder(const string &stop_order_id) {
-    vector<string> message;
-
-    message.push_back("cancel_stop_order");
-
-    appendStringParameter(message, "stop_order_id", stop_order_id, false);
-
-    vector<string> response = smarttFunction(message);
-
-    return true;
-}
-
-vector< map<string,string> > SmarttClient::getOrders(const string &order_id, const string &investment_code, const unsigned int brokerage_id, const string &initial_datetime, const string &final_datetime, const string &status, const vector<string> &attributes) {
-    vector<string> message;
-
-    message.push_back("get_orders");
-
-    appendStringParameter(message, "order_id", order_id);
-    appendStringParameter(message, "investment_code", investment_code);
-    appendUnsignedIntegerParameter(message, "brokerage_id",  brokerage_id, true);
-    appendDatetimeParameter(message, "initial_datetime", initial_datetime);
-    appendDatetimeParameter(message, "final_datetime", final_datetime);
-    appendEnumParameter(message, "status", status, order_statuses);
-    appendAttributes(message, attributes, get_orders_attributes);
-
-    vector<string> response = smarttFunction(message);
-
-    return formatListOfMapsResponse(response, attributes, get_orders_attributes);
-}
-
-vector< map<string,string> > SmarttClient::getOrdersEvents(const string &order_id, const string &investment_code, const unsigned int brokerage_id, const string &initial_datetime, const string &final_datetime, const string &event_type, const vector<string> &attributes) {
-    vector<string> message;
-
-    message.push_back("get_orders_events");
-
-    appendStringParameter(message, "order_id", order_id);
-    appendStringParameter(message, "investment_code", investment_code);
-    appendUnsignedIntegerParameter(message, "brokerage_id",  brokerage_id, true);
-    appendDatetimeParameter(message, "initial_datetime", initial_datetime);
-    appendDatetimeParameter(message, "final_datetime", final_datetime);
-    appendEnumParameter(message, "event_type", event_type, order_event_types);
-    appendAttributes(message, attributes, get_orders_events_attributes);
-
-    vector<string> response = smarttFunction(message);
-
-    return formatListOfMapsResponse(response, attributes, get_orders_events_attributes);
-}
-
-vector< map<string,string> > SmarttClient::getStopOrders(const string &stop_order_id, const string &investment_code, const unsigned int brokerage_id, const string &initial_datetime, const string &final_datetime, const string &status, const vector<string> &attributes) {
-    vector<string> message;
-
-    message.push_back("get_stop_orders");
-
-    appendStringParameter(message, "stop_order_id", stop_order_id);
-    appendStringParameter(message, "investment_code", investment_code);
-    appendUnsignedIntegerParameter(message, "brokerage_id",  brokerage_id, true);
-    appendDatetimeParameter(message, "initial_datetime", initial_datetime);
-    appendDatetimeParameter(message, "final_datetime", final_datetime);
-    appendEnumParameter(message, "status", status, stop_order_statuses);
-    appendAttributes(message, attributes, get_stop_orders_attributes);
-
-    vector<string> response = smarttFunction(message);
-
-    return formatListOfMapsResponse(response, attributes, get_stop_orders_attributes);
-}
-
-vector< map<string,string> > SmarttClient::getStopOrdersEvents(const string &stop_order_id, const string &investment_code, const unsigned int brokerage_id, const string &initial_datetime, const string &final_datetime, const string &event_type, const vector<string> &attributes) {
-    vector<string> message;
-
-    message.push_back("get_stop_orders_events");
-
-    appendStringParameter(message, "stop_order_id", stop_order_id);
-    appendStringParameter(message, "investment_code", investment_code);
-    appendUnsignedIntegerParameter(message, "brokerage_id",  brokerage_id, true);
-    appendDatetimeParameter(message, "initial_datetime", initial_datetime);
-    appendDatetimeParameter(message, "final_datetime", final_datetime);
-    appendEnumParameter(message, "event_type", event_type, stop_order_event_types);
-    appendAttributes(message, attributes, get_stop_orders_events_attributes);
-
-    vector<string> response = smarttFunction(message);
-
-    return formatListOfMapsResponse(response, attributes, get_stop_orders_events_attributes);
-}
-
-vector< map<string,string> > SmarttClient::getTrades(const string &order_id, const string &investment_code, const unsigned int brokerage_id, const string &initial_datetime, const string &final_datetime, const vector<string> &attributes) {
-    vector<string> message;
-
-    message.push_back("get_trades");
-
-    appendStringParameter(message, "order_id", order_id);
-    appendStringParameter(message, "investment_code", investment_code);
-    appendUnsignedIntegerParameter(message, "brokerage_id",  brokerage_id, true);
-    appendDatetimeParameter(message, "initial_datetime", initial_datetime);
-    appendDatetimeParameter(message, "final_datetime", final_datetime);
-    appendAttributes(message, attributes, get_trades_attributes);
-
-    vector<string> response = smarttFunction(message);
-
-    return formatListOfMapsResponse(response, attributes, get_trades_attributes);
-}
-
-vector< map<string,string> > SmarttClient::getPortfolio(const string &investment_code, const unsigned int brokerage_id, const vector<string> &attributes) {
-    vector<string> message;
-
-    message.push_back("get_portfolio");
-
-    appendStringParameter(message, "investment_code", investment_code);
-    appendUnsignedIntegerParameter(message, "brokerage_id",  brokerage_id, true);
-    appendAttributes(message, attributes, get_portfolio_attributes);
-
-    vector<string> response = smarttFunction(message);
-
-    return formatListOfMapsResponse(response, 2, response.size()-2, attributes, get_portfolio_attributes);
-}
-
-vector< map<string,string> > SmarttClient::getAvailableLimits(const string &investment_code, const unsigned int brokerage_id, const vector<string> &attributes) {
-    vector<string> message;
-
-    message.push_back("get_available_limits");
-
-    appendStringParameter(message, "investment_code", investment_code);
-    appendUnsignedIntegerParameter(message, "brokerage_id",  brokerage_id, true);
-    appendAttributes(message, attributes, get_available_limits_attributes);
-
-    vector<string> response = smarttFunction(message);
-
-    return formatListOfMapsResponse(response, attributes, get_available_limits_attributes);
-}
+#include "smartt_client_gen.cpp"
 

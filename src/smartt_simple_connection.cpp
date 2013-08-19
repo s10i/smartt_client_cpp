@@ -7,6 +7,9 @@
 
 #include "smartt_simple_connection.h"
 
+#include <iostream>
+using namespace std;
+
 /*************************************************************************************************
   SocketStream implementation
 *************************************************************************************************/
@@ -16,10 +19,18 @@ SocketStream::SocketStream(SmarttSocket &socket) :
 }
 
 string SocketStream::read() {
-    return socket_.read();
+    string s = socket_.read();
+
+#ifdef DEBUG_RAW_STRINGS
+    cout << "**** Received: " << s << " ****" << endl;
+#endif
+    return s;
 }
 
 void SocketStream::write(const string &data) {
+#ifdef DEBUG_RAW_STRINGS
+    cout << "**** Sent: " << data << " **** " << endl;
+#endif
     socket_.write(data);
 }
 

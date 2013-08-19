@@ -71,51 +71,8 @@ public:
     string sendRawMessage(const string &message);
 
     // Smartt functions
-    string login(const string &username, const string &password);
-    string logout();
-    string logged();
 
-    map<string,string> getClient(const vector<string> &attributes = vector<string>());
-    string getTime();
-    map<string,string> getStock(const string &stock_code, const string &market_name = string(), const vector<string> &attributes = vector<string>());
-
-    string sendOrder(const string &investment_code = string(), 
-                     const unsigned int brokerage_id = -1,
-                     const bool &order_type = true,
-                     const string &stock_code = string(),
-                     const string &market_name = string(),
-                     const unsigned int number_of_stocks = -1,
-                     const float price = -1.0,
-                     const string &validity_type = string(),
-                     const string &validity = string());
-
-    bool changeOrder(const string &order_id,
-                     const unsigned int new_number_of_stocks = -1,
-                     const float new_price = -1.0);
-
-    bool cancelOrder(const string &order_id);
-
-    string sendStopOrder(const string &investment_code = string(), 
-                         const unsigned int brokerage_id = -1,
-                         const bool order_type = true,
-                         const bool stop_order_type = true,
-                         const string &stock_code = string(),
-                         const string &market_name = string(),
-                         const unsigned int number_of_stocks = -1,
-                         const float stop_price = -1.0,
-                         const float limit_price = -1.0,
-                         const string &validity = string(),
-                         const bool valid_after_market = false);
-
-    bool cancelStopOrder(const string &stop_order_id);
-
-    vector< map<string,string> > getOrders(const string &order_id = string(), const string &investment_code = string(), const unsigned int brokerage_id = -1, const string &initial_datetime = string(), const string &final_datetime = string(), const string &status = string(), const vector<string> &attributes = vector<string>());
-    vector< map<string,string> > getOrdersEvents(const string &order_id = string(), const string &investment_code = string(), const unsigned int brokerage_id = -1, const string &initial_datetime = string(), const string &final_datetime = string(), const string &event_type = string(), const vector<string> &attributes = vector<string>());
-    vector< map<string,string> > getStopOrders(const string &order_id = string(), const string &investment_code = string(), const unsigned int brokerage_id = -1, const string &initial_datetime = string(), const string &final_datetime = string(), const string &status = string(), const vector<string> &attributes = vector<string>());
-    vector< map<string,string> > getStopOrdersEvents(const string &order_id = string(), const string &investment_code = string(), const unsigned int brokerage_id = -1, const string &initial_datetime = string(), const string &final_datetime = string(), const string &event_type = string(), const vector<string> &attributes = vector<string>());
-    vector< map<string,string> > getTrades(const string &order_id = string(), const string &investment_code = string(), const unsigned int brokerage_id = -1, const string &initial_datetime = string(), const string &final_datetime = string(), const vector<string> &attributes = vector<string>());
-    vector< map<string,string> > getPortfolio(const string &investment_code = string(), const unsigned int brokerage_id = -1, const vector<string> &attributes = vector<string>());
-    vector< map<string,string> > getAvailableLimits(const string &investment_code = string(), const unsigned int brokerage_id = -1, const vector<string> &attributes = vector<string>());
+    #include "smartt_client_gen.h"
 
 private:
 
