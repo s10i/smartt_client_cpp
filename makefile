@@ -17,19 +17,21 @@ UNAME := $(shell uname)
 ifeq ($(UNAME), Linux)
     CMSFLAGS = 
 
-    LDFLAGS = -lm -lcrypto -lnsl -lssl
+    LDFLAGS = -lm -lcrypto -lnsl -lssl -ljsoncpp
 endif
 ifeq ($(UNAME), Darwin)
     CMSFLAGS = 
 
-    LDFLAGS = -lm -lssl -lcrypto
+    LDFLAGS = -lm -lssl -lcrypto -ljsoncpp
 endif
 
 # Local objects
 LOCAL_OBJECTS =	$(OBJECT_DIRECTORY)/smartt_client.o \
 				$(OBJECT_DIRECTORY)/smartt_simple_connection.o \
 				$(OBJECT_DIRECTORY)/smartt_simple_protocol.o \
-				$(OBJECT_DIRECTORY)/smartt_socket.o
+				$(OBJECT_DIRECTORY)/smartt_socket.o \
+                $(OBJECT_DIRECTORY)/smartt_term.o \
+                $(OBJECT_DIRECTORY)/parameter_list.o
 
 # rules
 all: library client

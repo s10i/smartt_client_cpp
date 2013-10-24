@@ -15,8 +15,15 @@
 
 using namespace std;
 
+// External dependencies
+#include <jsoncpp/json/json.h>
+
 // Local dependencies
 #include "smartt_simple_connection.h"
+#include "parameter_list.h"
+
+// Convenience include (so that client code doesn't need to do it)
+#include "smartt_term.h"
 
 
 /*************************************************************************************************

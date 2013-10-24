@@ -6,28 +6,15 @@
 */
 
 #include "smartt_client.h"
+#include "jsoncpp/json/json.h"
 
 #include <iostream>
 
 using namespace std;
+using namespace smartt;
 
-string LOGIN = "YOUR_LOGIN";
-string PASSWORD = "YOUR_PASSWORD";
-
-void printMapResponse(const map<string,string> &response) {
-    for (std::map<string,string>::const_iterator it = response.begin(); it != response.end(); ++it)
-    {
-        cout << it->first << ": " << it->second << endl;
-    }
-}
-
-void printListOfMapsResponse(const vector< map<string,string> > &response) {
-    for (unsigned int i = 0; i < response.size(); ++i)
-    {
-        printMapResponse(response[i]);
-        cout << endl;
-    }
-}
+string MY_LOGIN = "YOUR_LOGIN";
+string MY_PASSWORD = "YOUR_PASSWORD";
 
 int main() {
     try {
@@ -39,113 +26,91 @@ int main() {
 
         cout << "###########################################################" << endl;
 
-        string response = client.login(LOGIN, PASSWORD);
-        cout << response << endl;
+        string loginMessage = client.login(ParameterList()
+                                           (S10I_LOGIN, MY_LOGIN)
+                                           (S10I_PASSWORD, MY_PASSWORD));
+        cout << loginMessage << endl;
 
         cout << "###########################################################" << endl;
 
-        string response2 = client.logged();
-        cout << response2 << endl;
+        string loggedMessage = client.logged();
+        cout << loggedMessage << endl;
 
         cout << "###########################################################" << endl;
 
-        map<string,string> response3 = client.getClient();
-        printMapResponse(response3);
+        Json::Value portfolios = client.getPortfolio(ParameterList()
+                                                     (INVESTMENT_CODE, PAPER)
+                                                     (BROKERAGE_ID, 1000));
+
+        cout << "Portfolios:\n" << portfolios << endl;
 
         cout << "###########################################################" << endl;
 
-//        string response4 = client.getTime();
-//        cout << response4 << endl;
+        Json::Value s10iClient = client.getClient();
+        cout << "Client information:\n" << s10iClient << endl;
 
         cout << "###########################################################" << endl;
 
-        map<string,string> response5 = client.getStock("PETR3F");
-        printMapResponse(response5);
+        Json::Value stock = client.getStock(ParameterList()
+                                            (STOCK_CODE, "PETR4"));
+        cout << "Stock information for PETR4:\n" << stock << endl;
 
         cout << "###########################################################" << endl;
 
-        vector< map<string,string> > response6 = client.getOrders();
-        printListOfMapsResponse(response6);
+        Json::Value orders = client.getOrders();
+
+        cout << "Got " << orders.size() << " orders.\n";
+
+        if (orders.size() > 3)
+            cout << "Showing first 3 orders...\n";
+
+        for (unsigned i = 0; i < min(3U, orders.size()); i++)
+            cout << orders[i] << endl;
 
         cout << "###########################################################" << endl;
 
-        vector< map<string,string> > response7 = client.getOrdersEvents();
-        printListOfMapsResponse(response7);
+        Json::Value trades = client.getTrades(ParameterList()(INVESTMENT_CODE, PAPER));
+
+        cout << "Got " << trades.size() << " trades.\n";
+
+        if (trades.size() > 3)
+            cout << "Showing first 3 trades...\n";
+
+        for (unsigned i = 0; i < min(3U, trades.size()); i++)
+            cout << trades[i] << endl;
 
         cout << "###########################################################" << endl;
 
-        vector< map<string,string> > response8 = client.getStopOrders();
-        printListOfMapsResponse(response8);
+        int orderId = client.sendOrder(ParameterList()
+                                       (INVESTMENT_CODE, PAPER)
+                                       (ORDER_TYPE, 0)
+                                       (STOCK_CODE, "PETR4")
+                                       (NUMBER_OF_STOCKS, 200)
+                                       (VALIDITY_TYPE, "HJ")
+                                       (PRICE, 2.00));
+
+        cout << "Sent buy order for PETR4. Id: " << orderId << endl;
 
         cout << "###########################################################" << endl;
 
-        vector< map<string,string> > response9 = client.getStopOrdersEvents();
-        printListOfMapsResponse(response9);
+        cout << "Getting that specific order:\n";
+
+        cout << client.getOrders(ParameterList()(ORDER_ID, orderId));
+
+        cout << endl;
+        cout << "###########################################################" << endl;
+
+        cout << "Cancelling that order... ";
+
+        client.cancelOrder(ParameterList()(ORDER_ID, orderId));
+
+        cout << "cancel request sent." << endl;
 
         cout << "###########################################################" << endl;
 
-        vector< map<string,string> > response10 = client.getTrades(0, "paper", 1000);
-        printListOfMapsResponse(response10);
+        cout << "Getting that order again. Its status changed:\n";
 
-        cout << "###########################################################" << endl;
-
-        vector< map<string,string> > response11 = client.getPortfolio("paper");
-        printListOfMapsResponse(response11);
-
-        cout << "###########################################################" << endl;
-
-        vector< map<string,string> > response12 = client.getAvailableLimits("paper", 1000);
-        printListOfMapsResponse(response12);
-
-        cout << "###########################################################" << endl;
-
-        int response13 = client.sendOrder("paper", 0, 1, "PETR4F", "", 1, 5.00);
-        cout << "ORDER ID: " << response13 << endl;
-
-        cout << "###########################################################" << endl;
-
-        vector< map<string,string> > response14 = client.getOrders(response13);
-        printListOfMapsResponse(response14);
-
-        cout << "###########################################################" << endl;
-
-        bool response15 = client.cancelOrder(response13);
-        cout << "ORDER ID: " << response13 << " canceled: " << response15 << endl;
-
-        cout << "###########################################################" << endl;
-
-//        vector< map<string,string> > response16 = client.getOrders("672385");
-//        printListOfMapsResponse(response16);
-
-        cout << "###########################################################" << endl;
-
-//        bool response17 = client.changeOrder("672385", 2, 4.50);
-//        cout << "ORDER ID: " << "672385" << " changed: " << response17 << endl;
-
-        cout << "###########################################################" << endl;
-
-//        vector< map<string,string> > response18 = client.getOrders("672385");
-//        printListOfMapsResponse(response18);
-
-        cout << "###########################################################" << endl;
-
-        int response19 = client.sendStopOrder("paper", 1000, 0, 0, "PETR4F", "", 10, 5.00, 4.50, "2013-08-21");
-        cout << "STOP ORDER ID: " << response19 << endl;
-
-        cout << "###########################################################" << endl;
-
-        vector< map<string,string> > response20 = client.getStopOrders(response19);
-        printListOfMapsResponse(response20);
-
-        cout << "###########################################################" << endl;
-
-        bool response21 = client.cancelStopOrder(response19);
-        cout << "ORDER ID: " << response19 << " canceled: " << response21 << endl;
-
-        cout << "###########################################################" << endl;
-
-        vector< map<string,string> > response22 = client.getStopOrders(response19);
-        printListOfMapsResponse(response22);
+        cout << client.getOrders(ParameterList()(ORDER_ID, orderId)) << endl;
 
         cout << "###########################################################" << endl;
 

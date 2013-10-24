@@ -7,6 +7,7 @@
 
 #include "smartt_client.h"
 #include "lexical_cast.h"
+#include "parameter_list.h"
 
 #include <algorithm>
 #include <sstream>
@@ -269,6 +270,23 @@ map<string,string> formatMapResponse(const vector<string> &values, const vector<
     return formatMapResponseAtIndexes(values, 0, values.size(), parameter_attributes, default_attributes);
 }
 
+Json::Value formatMapResponseAsJson(const vector<string> &values,
+                                    const vector<string> &parameter_attributes,
+                                    const vector<string> &default_attributes)
+{
+    Json::Value response;
+
+    vector<string> returned_attributes = parameter_attributes.size() ?
+                                         parameter_attributes :
+                                         default_attributes;
+
+    for (unsigned i = 0; i < returned_attributes.size(); i++) {
+        response[returned_attributes[i]] = values[i];
+    }
+
+    return response;
+}
+
 vector< map<string,string> > formatListOfMapsResponse(const vector<string> &values, int values_start, unsigned int values_length, const vector<string> &parameter_attributes, const vector<string> &default_attributes) {
     const vector<string> attributes = (parameter_attributes.size() == 0 ? default_attributes : parameter_attributes);
 
@@ -289,6 +307,57 @@ vector< map<string,string> > formatListOfMapsResponse(const vector<string> &valu
 
 vector< map<string,string> > formatListOfMapsResponse(const vector<string> &values, const vector<string> &parameter_attributes, const vector<string> &default_attributes) {
     return formatListOfMapsResponse(values, 0, values.size(), parameter_attributes, default_attributes);
+}
+
+Json::Value formatListOfMapsResponseAsJson(const vector<string> &values,
+                                           unsigned offset,
+                                           unsigned values_length,
+                                           const vector<string> &parameter_attributes,
+                                           const vector<string> &default_attributes)
+{
+    vector<string> attributes = parameter_attributes.size() ?
+                                parameter_attributes :
+                                default_attributes;
+    if (values_length % attributes.size())
+        throw SmarttClientException("Invalid number of values received!");
+
+    Json::Value response;
+
+    for (unsigned i = 0; i < values_length / attributes.size(); i++) {
+        Json::Value returnedObject;
+
+        for (unsigned j = 0; j < attributes.size(); j++) {
+            returnedObject[attributes[j]] = values[offset + i*attributes.size() + j];
+        }
+
+        response.append(returnedObject);
+    }
+
+    return response;
+}
+
+
+void appendParameterList(vector<string> &message, const ParameterList &request) {
+    for (unsigned i = 0; i < request.size(); i++)
+        message.push_back(request.parameterName(i) + "=" + request.parameterValue(i));
+}
+
+vector<string> findParameter(const ParameterList &request, string name) {
+    for (unsigned i = 0; i < request.size(); i++)
+        if (request.parameterName(i) == name) {
+            vector<string> names;
+            size_t next = string::npos;
+
+            // split names on every ','
+            do {
+                size_t last = next;
+                next = name.find_first_of(',', next+1);
+                names.push_back(name.substr(last+1, next - (last+1)));
+            } while (next != string::npos);
+
+            return names;
+        }
+    return vector<string>();
 }
 
 /*****************************************************************************
