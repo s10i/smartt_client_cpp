@@ -64,7 +64,10 @@ const std::vector<std::string> get_client_attributes = {
     "birthday",
     "main_phone",
     "secondary_phone",
-    "company"
+    "company",
+    "registration_datetime",
+    "plan",
+    "plan_expiration_date"
 };
 
 Json::Value SmarttClient::getClient(const ParameterList& parameterList)
@@ -97,6 +100,7 @@ std::string SmarttClient::updateClient(const ParameterList& parameterList)
 
 const std::vector<std::string> get_client_brokerages_attributes = {
     "brokerage_id",
+    "cblc_login",
     "brokerage_login"
 };
 
