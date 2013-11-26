@@ -4,7 +4,6 @@
 
     Author: Felipe Menezes Machado (felipe@s10i.com.br)
 */
-#define DEBUG_RAW_STRINGS
 
 #include "smartt_simple_connection.h"
 

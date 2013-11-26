@@ -13,8 +13,8 @@
 using namespace std;
 using namespace smartt;
 
-string MY_LOGIN = "gpoesia";
-string MY_PASSWORD = "123456";
+string MY_LOGIN = "YOUR_LOGIN";
+string MY_PASSWORD = "YOUR_PASSWORD";
 
 int main() {
     try {
