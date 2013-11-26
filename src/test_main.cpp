@@ -13,14 +13,14 @@
 using namespace std;
 using namespace smartt;
 
-string MY_LOGIN = "YOUR_LOGIN";
-string MY_PASSWORD = "YOUR_PASSWORD";
+string MY_LOGIN = "gpoesia";
+string MY_PASSWORD = "123456";
 
 int main() {
     try {
         cout << "Creating client... " << flush;
 
-        SmarttClient client(DEFAULT_SMARTT_CLIENT_HOST, DEFAULT_SMARTT_CLIENT_PORT, false);
+        SmarttClient client;
 
         cout << "Client created!" << endl;
 
@@ -86,7 +86,6 @@ int main() {
                                        (ORDER_TYPE, 0)
                                        (STOCK_CODE, "PETR4")
                                        (NUMBER_OF_STOCKS, 200)
-                                       (VALIDITY_TYPE, "HJ")
                                        (PRICE, 2.00));
 
         cout << "Sent buy order for PETR4. Id: " << orderId << endl;

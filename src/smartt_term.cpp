@@ -237,6 +237,7 @@ const SmarttTerm TRADE_ID_IN_BROKERAGE("trade_id_in_brokerage");
 const SmarttTerm TRADE_TYPE("trade_type");
 const SmarttTerm TRADING_LOT_SIZE("trading_lot_size");
 const SmarttTerm TRADING_TAX_COST("trading_tax_cost");
+const SmarttTerm TRIGGERED_STOP_ORDER_ID("triggered_stop_order_id");
 const SmarttTerm TYPE("type");
 const SmarttTerm UNTIL_CANCEL("until_cancel");
 const SmarttTerm VALIDITY("validity");

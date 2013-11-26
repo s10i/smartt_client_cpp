@@ -12,8 +12,21 @@ cláusulas (ver arquivo LICENSE).
 Para compilar a biblioteca e a aplicação cliente, basta utilizar o arquivo
 makefile incluído e executar o comando make:
 
-	make
+$ make
 
+Um método mais portável de compilação é utilizar o CMake. Para tal, você
+pode criar um diretório temporário para os arquivos de compilação, e usar
+o arquivo CMakeLists.txt deste repositório. Em um sistema GNU/Linux,
+considerando que o CMake está instalado, você poderia fazer (estando
+na pasta deste README):
+
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+
+A execução do CMake poderá informar algum erro, por exemplo sobre 
+dependências faltando. A seção seguinte pode ajudar neste caso.
 
 ## Dependências
 
@@ -25,6 +38,15 @@ representar os valores de retorno do Smartt.
 A versão da *OpenSSL* utilizada durante o desenvolvimento e testes é a 
 **1.0.1e, Revision 1**.
 
+As duas bibliotecas podem ser encontradas nos repositórios das 
+distribuições Linux mais populares. Por exemplo, no Debian ou Ubuntu,
+elas podem ser instaladas com o comando:
+
+$ sudo apt-get install libjsoncpp-dev libssl-dev
+
+Ou no Fedora:
+
+$ sudo yum install jsoncpp-devel openssl-devel
 
 ## Usando a Biblioteca
 

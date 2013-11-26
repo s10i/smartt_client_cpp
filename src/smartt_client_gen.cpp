@@ -242,7 +242,8 @@ const std::vector<std::string> get_orders_attributes = {
     "status",
     "absolute_brokerage_tax_cost",
     "percentual_brokerage_tax_cost",
-    "iss_tax_cost"
+    "iss_tax_cost",
+    "triggered_stop_order_id"
 };
 
 Json::Value SmarttClient::getOrders(const ParameterList& parameterList)

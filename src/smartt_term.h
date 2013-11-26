@@ -245,6 +245,7 @@ extern const SmarttTerm TRADE_ID_IN_BROKERAGE;
 extern const SmarttTerm TRADE_TYPE;
 extern const SmarttTerm TRADING_LOT_SIZE;
 extern const SmarttTerm TRADING_TAX_COST;
+extern const SmarttTerm TRIGGERED_STOP_ORDER_ID;
 extern const SmarttTerm TYPE;
 extern const SmarttTerm UNTIL_CANCEL;
 extern const SmarttTerm VALIDITY;
