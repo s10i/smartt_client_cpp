@@ -66,3 +66,13 @@ std::string updateFinancialTransaction(const ParameterList& parameterList = Para
 
 std::string deleteFinancialTransactions(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
+std::string insertClient(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+std::string insertFakeTrade(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+std::string deleteFakeTrades(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+Json::Value getHistoricalTrades(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+Json::Value getHistoricalCandles(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+

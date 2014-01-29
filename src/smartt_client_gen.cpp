@@ -243,8 +243,7 @@ const std::vector<std::string> get_orders_attributes = {
     "status",
     "absolute_brokerage_tax_cost",
     "percentual_brokerage_tax_cost",
-    "iss_tax_cost",
-    "triggered_stop_order_id"
+    "iss_tax_cost"
 };
 
 Json::Value SmarttClient::getOrders(const ParameterList& parameterList)
@@ -738,6 +737,112 @@ std::string SmarttClient::deleteFinancialTransactions(const ParameterList& param
     appendParameterList(message, parameterList);
     vector<string> response = smarttFunction(message);
     std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> insert_client_attributes = {
+    "insert_client_message"
+};
+
+std::string SmarttClient::insertClient(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("insert_client");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> insert_fake_trade_attributes = {
+    "insert_fake_trade_message"
+};
+
+std::string SmarttClient::insertFakeTrade(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("insert_fake_trade");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> delete_fake_trades_attributes = {
+    "delete_fake_trades_message"
+};
+
+std::string SmarttClient::deleteFakeTrades(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("delete_fake_trades");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> get_historical_trades_attributes = {
+    "trade_identifier",
+    "stock_code",
+    "market_name",
+    "datetime",
+    "nominal_price",
+    "number_of_stocks",
+    "financial_volume",
+    "id_buyer_brokerage",
+    "id_seller_brokerage",
+    "is_after_market",
+    "adjustment_factor"
+};
+
+Json::Value SmarttClient::getHistoricalTrades(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("get_historical_trades");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    Json::Value returnValue = formatListOfMapsResponseAsJson(response, 0, response.size() - 0, findParameter(parameterList, "return_attributes"), get_historical_trades_attributes);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> get_historical_candles_attributes = {
+    "periodicity",
+    "stock_code",
+    "market_name",
+    "datetime",
+    "first_trade_datetime",
+    "last_trade_datetime",
+    "first_trade_identifier",
+    "last_trade_identifier",
+    "open",
+    "high",
+    "low",
+    "close",
+    "number_of_trades",
+    "number_of_stocks",
+    "financial_volume",
+    "include_after_market",
+    "adjustment_factor"
+};
+
+Json::Value SmarttClient::getHistoricalCandles(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("get_historical_candles");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    Json::Value returnValue = formatListOfMapsResponseAsJson(response, 0, response.size() - 0, findParameter(parameterList, "return_attributes"), get_historical_candles_attributes);
     return returnValue;
 
 }
