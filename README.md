@@ -150,7 +150,8 @@ recursos, a documentação completa da API.
                                    (BROKERAGE_ID, 1000)
                                    (STOCK_CODE, "PETR3F")
                                    (NUMBER_OF_STOCKS, 1)
-                                   (PRICE, 5.00));
+                                   (PRICE, 5.00)
+                                   (ORDER_TYPE, 0));
 
     // Cancela a ordem feita
     client.cancelOrder(ParameterList()(ORDER_ID, orderId));

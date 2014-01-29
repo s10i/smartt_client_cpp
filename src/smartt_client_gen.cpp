@@ -67,6 +67,7 @@ const std::vector<std::string> get_client_attributes = {
     "company",
     "registration_datetime",
     "plan",
+    "has_customized_strategies",
     "plan_expiration_date"
 };
 
@@ -346,7 +347,7 @@ int SmarttClient::changeStopOrder(const ParameterList& parameterList)
 
 const std::vector<std::string> get_stop_orders_attributes = {
     "stop_order_id",
-    "order_id_in_brokerage",
+    "stop_order_id_in_brokerage",
     "investment_code",
     "brokerage_id",
     "is_real",
@@ -503,14 +504,14 @@ const std::vector<std::string> get_report_attributes = {
     "absolute_number_of_profit_eliminations",
     "percentual_number_of_profit_eliminations",
     "absolute_largest_profit_elimination",
-    "percentual_largest__profit_elimination",
+    "percentual_largest_profit_elimination",
     "average_profit_in_profit_eliminations",
     "maximum_consecutive_profit_eliminations",
-    "total_profit_in_maximum_consecutive_profit_eliminatons",
+    "total_profit_in_maximum_consecutive_profit_eliminations",
     "absolute_number_of_loss_eliminations",
     "percentual_number_of_loss_eliminations",
     "absolute_largest_loss_elimination",
-    "percentual_largest__loss_elimination",
+    "percentual_largest_loss_elimination",
     "average_loss_in_loss_eliminations",
     "maximum_consecutive_loss_eliminations",
     "total_loss_in_maximum_consecutive_loss_eliminations",
