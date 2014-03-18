@@ -31,7 +31,7 @@ SmarttTerm::operator std::string() const
 
 namespace smartt {
 const SmarttTerm BMF("BMF");
-const SmarttTerm BOVESPA("Bovespa");
+const SmarttTerm BOVESPA("BOVESPA");
 const SmarttTerm F("F");
 const SmarttTerm M("M");
 const SmarttTerm ABSOLUTE_BROKERAGE_TAX("absolute_brokerage_tax");
@@ -84,10 +84,13 @@ const SmarttTerm DESCRIPTION("description");
 const SmarttTerm DIRECT_DEBIT("direct_debit");
 const SmarttTerm DOCUMENT("document");
 const SmarttTerm EMAIL("email");
+const SmarttTerm ENTRY("entry");
+const SmarttTerm ENTRY_EXIT_OR_REVERSAL("entry_exit_or_reversal");
 const SmarttTerm EQUITY("equity");
 const SmarttTerm EVENT_TYPE("event_type");
 const SmarttTerm EXECUTED("executed");
 const SmarttTerm EXERCISE_PRICE("exercise_price");
+const SmarttTerm EXIT("exit");
 const SmarttTerm EXPECTED_PAYOFF("expected_payoff");
 const SmarttTerm EXPIRATION_DATE("expiration_date");
 const SmarttTerm EXPIRED("expired");
@@ -202,6 +205,7 @@ const SmarttTerm REGISTER_TAX_COST("register_tax_cost");
 const SmarttTerm REGISTRATION_DATETIME("registration_datetime");
 const SmarttTerm REJECTED("rejected");
 const SmarttTerm RETURN_ATTRIBUTES("return_attributes");
+const SmarttTerm REVERSAL("reversal");
 const SmarttTerm S10I_LOGIN("s10i_login");
 const SmarttTerm S10I_PASSWORD("s10i_password");
 const SmarttTerm SECONDARY_PHONE("secondary_phone");

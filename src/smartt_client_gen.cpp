@@ -243,6 +243,8 @@ const std::vector<std::string> get_orders_attributes = {
     "absolute_brokerage_tax_cost",
     "percentual_brokerage_tax_cost",
     "iss_tax_cost",
+    "entry_exit_or_reversal",
+    "description",
     "triggered_stop_order_id"
 };
 
@@ -360,6 +362,8 @@ const std::vector<std::string> get_stop_orders_attributes = {
     "limit_price",
     "validity",
     "status",
+    "entry_exit_or_reversal",
+    "description",
     "sent_order_id"
 };
 
