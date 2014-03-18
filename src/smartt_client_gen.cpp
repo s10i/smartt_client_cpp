@@ -244,7 +244,6 @@ const std::vector<std::string> get_orders_attributes = {
     "percentual_brokerage_tax_cost",
     "iss_tax_cost",
     "entry_exit_or_reversal",
-    "description",
     "triggered_stop_order_id"
 };
 
@@ -267,7 +266,8 @@ const std::vector<std::string> get_orders_events_attributes = {
     "number_of_events",
     "datetime",
     "event_type",
-    "description"
+    "description",
+    "reason"
 };
 
 Json::Value SmarttClient::getOrdersEvents(const ParameterList& parameterList)
@@ -363,7 +363,6 @@ const std::vector<std::string> get_stop_orders_attributes = {
     "validity",
     "status",
     "entry_exit_or_reversal",
-    "description",
     "sent_order_id"
 };
 
@@ -386,7 +385,8 @@ const std::vector<std::string> get_stop_orders_events_attributes = {
     "number_of_events",
     "datetime",
     "event_type",
-    "description"
+    "description",
+    "reason"
 };
 
 Json::Value SmarttClient::getStopOrdersEvents(const ParameterList& parameterList)

@@ -208,6 +208,7 @@ extern const SmarttTerm POSTAL_CODE;
 extern const SmarttTerm PREVIOUS_FINAL_STATE;
 extern const SmarttTerm PRICE;
 extern const SmarttTerm PROFIT_FACTOR;
+extern const SmarttTerm REASON;
 extern const SmarttTerm RECEIVED;
 extern const SmarttTerm REGISTER_TAX_COST;
 extern const SmarttTerm REGISTRATION_DATETIME;

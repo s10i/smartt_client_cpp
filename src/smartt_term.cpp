@@ -200,6 +200,7 @@ const SmarttTerm POSTAL_CODE("postal_code");
 const SmarttTerm PREVIOUS_FINAL_STATE("previous_final_state");
 const SmarttTerm PRICE("price");
 const SmarttTerm PROFIT_FACTOR("profit_factor");
+const SmarttTerm REASON("reason");
 const SmarttTerm RECEIVED("received");
 const SmarttTerm REGISTER_TAX_COST("register_tax_cost");
 const SmarttTerm REGISTRATION_DATETIME("registration_datetime");
