@@ -24,7 +24,11 @@ int changeOrder(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 Json::Value getOrders(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
+unsigned getNumberOfOrders(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
 Json::Value getOrdersEvents(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+unsigned getNumberOfOrdersEvents(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 int getOrderId(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
@@ -36,11 +40,17 @@ int changeStopOrder(const ParameterList& parameterList = ParameterList::EMPTY_LI
 
 Json::Value getStopOrders(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
+unsigned getNumberOfStopOrders(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
 Json::Value getStopOrdersEvents(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+unsigned getNumberOfStopOrdersEvents(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 int getStopOrderId(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 Json::Value getTrades(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+unsigned getNumberOfTrades(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 Json::Value getInvestments(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
@@ -59,6 +69,8 @@ Json::Value getSetups(const ParameterList& parameterList = ParameterList::EMPTY_
 std::string updateSetup(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 Json::Value getFinancialTransactions(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+unsigned getNumberOfFinancialTransactions(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 std::string insertFinancialTransaction(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 

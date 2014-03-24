@@ -259,6 +259,22 @@ Json::Value SmarttClient::getOrders(const ParameterList& parameterList)
 }
 
 
+const std::vector<std::string> get_number_of_orders_attributes = {
+    "number_of_orders"
+};
+
+unsigned SmarttClient::getNumberOfOrders(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("get_number_of_orders");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    unsigned returnValue = lexical_cast<unsigned>(response[0]);
+    return returnValue;
+
+}
+
+
 const std::vector<std::string> get_orders_events_attributes = {
     "order_id",
     "investment_code",
@@ -277,6 +293,22 @@ Json::Value SmarttClient::getOrdersEvents(const ParameterList& parameterList)
     appendParameterList(message, parameterList);
     vector<string> response = smarttFunction(message);
     Json::Value returnValue = formatListOfMapsResponseAsJson(response, 0, response.size() - 0, findParameter(parameterList, "return_attributes"), get_orders_events_attributes);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> get_number_of_orders_events_attributes = {
+    "number_of_orders_events"
+};
+
+unsigned SmarttClient::getNumberOfOrdersEvents(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("get_number_of_orders_events");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    unsigned returnValue = lexical_cast<unsigned>(response[0]);
     return returnValue;
 
 }
@@ -378,6 +410,22 @@ Json::Value SmarttClient::getStopOrders(const ParameterList& parameterList)
 }
 
 
+const std::vector<std::string> get_number_of_stop_orders_attributes = {
+    "number_of_stop_orders"
+};
+
+unsigned SmarttClient::getNumberOfStopOrders(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("get_number_of_stop_orders");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    unsigned returnValue = lexical_cast<unsigned>(response[0]);
+    return returnValue;
+
+}
+
+
 const std::vector<std::string> get_stop_orders_events_attributes = {
     "stop_order_id",
     "investment_code",
@@ -396,6 +444,22 @@ Json::Value SmarttClient::getStopOrdersEvents(const ParameterList& parameterList
     appendParameterList(message, parameterList);
     vector<string> response = smarttFunction(message);
     Json::Value returnValue = formatListOfMapsResponseAsJson(response, 0, response.size() - 0, findParameter(parameterList, "return_attributes"), get_stop_orders_events_attributes);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> get_number_of_stop_orders_events_attributes = {
+    "number_of_stop_orders_events"
+};
+
+unsigned SmarttClient::getNumberOfStopOrdersEvents(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("get_number_of_stop_orders_events");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    unsigned returnValue = lexical_cast<unsigned>(response[0]);
     return returnValue;
 
 }
@@ -445,6 +509,22 @@ Json::Value SmarttClient::getTrades(const ParameterList& parameterList)
     appendParameterList(message, parameterList);
     vector<string> response = smarttFunction(message);
     Json::Value returnValue = formatListOfMapsResponseAsJson(response, 0, response.size() - 0, findParameter(parameterList, "return_attributes"), get_trades_attributes);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> get_number_of_trades_attributes = {
+    "number_of_trades"
+};
+
+unsigned SmarttClient::getNumberOfTrades(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("get_number_of_trades");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    unsigned returnValue = lexical_cast<unsigned>(response[0]);
     return returnValue;
 
 }
@@ -693,6 +773,22 @@ Json::Value SmarttClient::getFinancialTransactions(const ParameterList& paramete
     appendParameterList(message, parameterList);
     vector<string> response = smarttFunction(message);
     Json::Value returnValue = formatListOfMapsResponseAsJson(response, 0, response.size() - 0, findParameter(parameterList, "return_attributes"), get_financial_transactions_attributes);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> get_number_of_financial_transactions_attributes = {
+    "number_of_financial_transactions"
+};
+
+unsigned SmarttClient::getNumberOfFinancialTransactions(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("get_number_of_financial_transactions");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    unsigned returnValue = lexical_cast<unsigned>(response[0]);
     return returnValue;
 
 }
