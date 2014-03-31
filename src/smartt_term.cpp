@@ -111,6 +111,7 @@ const SmarttTerm INCOME_TAX_PAYMENT("income_tax_payment");
 const SmarttTerm INITIAL_CAPITAL("initial_capital");
 const SmarttTerm INITIAL_DATETIME("initial_datetime");
 const SmarttTerm INVESTMENT_CODE("investment_code");
+const SmarttTerm IP_USED_TO_SIGN_UP("ip_used_to_sign_up");
 const SmarttTerm IS_REAL("is_real");
 const SmarttTerm ISIN_CODE("isin_code");
 const SmarttTerm ISS_TAX("iss_tax");

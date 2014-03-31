@@ -65,6 +65,7 @@ const std::vector<std::string> get_client_attributes = {
     "main_phone",
     "secondary_phone",
     "company",
+    "ip_used_to_sign_up",
     "registration_datetime",
     "plan",
     "has_customized_strategies",

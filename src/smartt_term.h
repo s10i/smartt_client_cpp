@@ -119,6 +119,7 @@ extern const SmarttTerm INCOME_TAX_PAYMENT;
 extern const SmarttTerm INITIAL_CAPITAL;
 extern const SmarttTerm INITIAL_DATETIME;
 extern const SmarttTerm INVESTMENT_CODE;
+extern const SmarttTerm IP_USED_TO_SIGN_UP;
 extern const SmarttTerm IS_REAL;
 extern const SmarttTerm ISIN_CODE;
 extern const SmarttTerm ISS_TAX;
