@@ -149,32 +149,6 @@ std::string SmarttClient::updateClientBrokerage(const ParameterList& parameterLi
 }
 
 
-const std::vector<std::string> get_stock_attributes = {
-    "stock_code",
-    "market_name",
-    "company_name",
-    "kind_of_stock",
-    "isin_code",
-    "trading_lot_size",
-    "kind_of_quotation",
-    "type",
-    "code_underlying_stock",
-    "exercise_price",
-    "expiration_date"
-};
-
-Json::Value SmarttClient::getStock(const ParameterList& parameterList)
-{
-    vector<string> message;
-    message.push_back("get_stock");
-    appendParameterList(message, parameterList);
-    vector<string> response = smarttFunction(message);
-    Json::Value returnValue = formatMapResponseAsJson(response, findParameter(parameterList, "return_attributes"), get_stock_attributes);
-    return returnValue;
-
-}
-
-
 const std::vector<std::string> send_order_attributes = {
     "order_id"
 };

@@ -14,8 +14,6 @@ std::string insertClientBrokerage(const ParameterList& parameterList = Parameter
 
 std::string updateClientBrokerage(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
-Json::Value getStock(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
-
 int sendOrder(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 int cancelOrder(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
