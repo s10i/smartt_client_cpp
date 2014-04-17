@@ -6,7 +6,6 @@
 */
 
 #include "smartt_client.h"
-#include "jsoncpp/json/json.h"
 
 #include <iostream>
 
@@ -48,12 +47,6 @@ int main() {
 
         Json::Value s10iClient = client.getClient();
         cout << "Client information:\n" << s10iClient << endl;
-
-        cout << "###########################################################" << endl;
-
-        Json::Value stock = client.getStock(ParameterList()
-                                            (STOCK_CODE, "PETR4"));
-        cout << "Stock information for PETR4:\n" << stock << endl;
 
         cout << "###########################################################" << endl;
 

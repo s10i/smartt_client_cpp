@@ -19,3 +19,10 @@
 
 # ignorar arquivos DS_Store do Mac
 *.DS_Store
+
+# ignorar arquivos gerador pelo cmake
+CMakeCache.txt
+CMakeFiles
+cmake_install.cmake
+makefile
+

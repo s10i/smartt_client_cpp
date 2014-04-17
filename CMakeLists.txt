@@ -8,7 +8,7 @@ find_package(JsonCpp REQUIRED)
 
 set(CMAKE_CXX_FLAGS "-Wall -O2 -std=c++11")
 
-add_library(smartt-tcp
+add_library(smartt_client
             src/smartt_client.cpp
             src/smartt_simple_connection.cpp
             src/smartt_simple_protocol.cpp
@@ -16,6 +16,6 @@ add_library(smartt-tcp
             src/smartt_term.cpp
             src/parameter_list.cpp)
 
-add_executable(SmarttCppTcpExample src/test_main.cpp)
+add_executable(smartt_client_test.run src/test_main.cpp)
 
-target_link_libraries(SmarttCppTcpExample smartt-tcp jsoncpp ssl crypto)
+target_link_libraries(smartt_client_test.run smartt_client ${JSONCPP_LIBRARY} ssl crypto)

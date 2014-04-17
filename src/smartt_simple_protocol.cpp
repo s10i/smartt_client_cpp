@@ -7,19 +7,73 @@
 
 #include "smartt_simple_protocol.h"
 
+#include <set>
+#include <iomanip>
+#include <sstream>
+
 /*************************************************************************************************
   Helper functions
 *************************************************************************************************/
 // Escapes a string according to the protocol - avoid using the reserved ';' and '$' characters
 string escape(const string &value) {
-    string escaped_value = string(value);
-    return escaped_value;
+    static set<char> encoded_characters;
+    if (encoded_characters.size() == 0)
+    {
+        encoded_characters.insert(';');
+        encoded_characters.insert('$');
+        encoded_characters.insert('\\');
+        for (int i = 0; i < 32; ++i)
+        {
+            encoded_characters.insert((char)i);
+        }
+    }
+
+    ostringstream encoded;
+    for (unsigned int i = 0; i < value.size(); ++i)
+    {
+        char c = value[i];
+
+        if( encoded_characters.find(c) == encoded_characters.end() )
+        {
+            encoded << c;
+        }
+        else
+        {
+            encoded << "\\x" << hex << setfill('0') << setw(2) << (int)c;
+        }
+    }
+
+    return encoded.str();
 }
 
 // Unescapes a string according to the protocol
 string unescape(const string &value) {
-    string unescaped_value = string(value);
-    return unescaped_value;
+    ostringstream decoded;
+    int hex_escape_count = 0;
+
+    for (unsigned int i = 0; i < value.size(); ++i)
+    {
+        if (hex_escape_count == 0)
+        {
+            char c = value[i];
+            if (c == '\\' && (i+3 < value.size()) && value[i+1] == 'x')
+            {
+                hex_escape_count = 3;
+                char hex_string[2] = {value[i+2], value[i+3]};
+                decoded << (char)strtol(hex_string, NULL, 16);
+            }
+            else
+            {
+                decoded << c;
+            }
+        }
+        else
+        {
+            hex_escape_count -= 1;
+        }
+    }
+
+    return decoded.str();
 }
 
 // Splits a string according to a separator, unescaping the tokens
