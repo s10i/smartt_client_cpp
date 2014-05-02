@@ -102,7 +102,8 @@ std::string SmarttClient::updateClient(const ParameterList& parameterList)
 
 const std::vector<std::string> get_client_brokerages_attributes = {
     "brokerage_id",
-    "cblc_login"
+    "cblc_bovespa_code",
+    "cblc_bmf_code"
 };
 
 Json::Value SmarttClient::getClientBrokerages(const ParameterList& parameterList)
