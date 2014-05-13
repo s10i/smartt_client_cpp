@@ -12,8 +12,6 @@ Json::Value getClientBrokerages(const ParameterList& parameterList = ParameterLi
 
 std::string insertClientBrokerage(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
-std::string updateClientBrokerage(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
-
 int sendOrder(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 int cancelOrder(const ParameterList& parameterList = ParameterList::EMPTY_LIST);

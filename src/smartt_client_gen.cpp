@@ -102,6 +102,7 @@ std::string SmarttClient::updateClient(const ParameterList& parameterList)
 
 const std::vector<std::string> get_client_brokerages_attributes = {
     "brokerage_id",
+    "brokerage_name",
     "cblc_bovespa_code",
     "cblc_bmf_code"
 };
@@ -126,22 +127,6 @@ std::string SmarttClient::insertClientBrokerage(const ParameterList& parameterLi
 {
     vector<string> message;
     message.push_back("insert_client_brokerage");
-    appendParameterList(message, parameterList);
-    vector<string> response = smarttFunction(message);
-    std::string returnValue = lexical_cast<std::string>(response[0]);
-    return returnValue;
-
-}
-
-
-const std::vector<std::string> update_client_brokerage_attributes = {
-    "message"
-};
-
-std::string SmarttClient::updateClientBrokerage(const ParameterList& parameterList)
-{
-    vector<string> message;
-    message.push_back("update_client_brokerage");
     appendParameterList(message, parameterList);
     vector<string> response = smarttFunction(message);
     std::string returnValue = lexical_cast<std::string>(response[0]);
@@ -201,12 +186,12 @@ int SmarttClient::changeOrder(const ParameterList& parameterList)
 const std::vector<std::string> get_orders_attributes = {
     "order_id",
     "order_id_in_brokerage",
-    "investment_code",
     "brokerage_id",
+    "investment_code",
     "is_real",
     "order_type",
-    "stock_code",
     "market_name",
+    "stock_code",
     "datetime",
     "number_of_stocks",
     "nominal_price",
@@ -253,8 +238,8 @@ unsigned SmarttClient::getNumberOfOrders(const ParameterList& parameterList)
 
 const std::vector<std::string> get_orders_events_attributes = {
     "order_id",
-    "investment_code",
     "brokerage_id",
+    "investment_code",
     "number_of_events",
     "datetime",
     "event_type",
@@ -357,13 +342,13 @@ int SmarttClient::changeStopOrder(const ParameterList& parameterList)
 const std::vector<std::string> get_stop_orders_attributes = {
     "stop_order_id",
     "stop_order_id_in_brokerage",
-    "investment_code",
     "brokerage_id",
+    "investment_code",
     "is_real",
     "order_type",
     "stop_order_type",
-    "stock_code",
     "market_name",
+    "stock_code",
     "datetime",
     "number_of_stocks",
     "stop_price",
@@ -404,8 +389,8 @@ unsigned SmarttClient::getNumberOfStopOrders(const ParameterList& parameterList)
 
 const std::vector<std::string> get_stop_orders_events_attributes = {
     "stop_order_id",
-    "investment_code",
     "brokerage_id",
+    "investment_code",
     "number_of_events",
     "datetime",
     "event_type",
@@ -460,12 +445,12 @@ int SmarttClient::getStopOrderId(const ParameterList& parameterList)
 const std::vector<std::string> get_trades_attributes = {
     "order_id",
     "trade_id_in_brokerage",
-    "investment_code",
     "brokerage_id",
+    "investment_code",
     "is_real",
     "trade_type",
-    "stock_code",
     "market_name",
+    "stock_code",
     "datetime",
     "number_of_stocks",
     "nominal_price",
@@ -507,8 +492,8 @@ unsigned SmarttClient::getNumberOfTrades(const ParameterList& parameterList)
 
 
 const std::vector<std::string> get_investments_attributes = {
-    "name",
     "code",
+    "description",
     "brokerage_id",
     "setup_code",
     "is_real",
@@ -529,8 +514,8 @@ Json::Value SmarttClient::getInvestments(const ParameterList& parameterList)
 
 
 const std::vector<std::string> get_report_attributes = {
-    "investment_code",
     "brokerage_id",
+    "investment_code",
     "setup_code",
     "initial_datetime",
     "final_datetime",
@@ -601,8 +586,8 @@ Json::Value SmarttClient::getReport(const ParameterList& parameterList)
 
 
 const std::vector<std::string> get_daily_cumulative_performance_attributes = {
-    "investment_code",
     "brokerage_id",
+    "investment_code",
     "daily_cumulative_performance"
 };
 
@@ -619,8 +604,8 @@ Json::Value SmarttClient::getDailyCumulativePerformance(const ParameterList& par
 
 
 const std::vector<std::string> get_daily_drawdown_attributes = {
-    "investment_code",
     "brokerage_id",
+    "investment_code",
     "daily_drawdown"
 };
 
@@ -652,8 +637,8 @@ Json::Value SmarttClient::getPortfolio(const ParameterList& parameterList)
     vector<string> response = smarttFunction(message);
     Json::Value returnValue = formatListOfMapsResponseAsJson(response, 2, response.size() - 2, findParameter(parameterList, "return_attributes"), get_portfolio_attributes);
     Json::Value responseObject;
-    responseObject["investment_code"] = response[0];
-    responseObject["brokerage_id"] = response[1];
+    responseObject["brokerage_id"] = response[0];
+    responseObject["investment_code"] = response[1];
     responseObject["objects"] = returnValue;
     return responseObject;
 
@@ -679,8 +664,8 @@ Json::Value SmarttClient::getAvailableLimits(const ParameterList& parameterList)
 
 
 const std::vector<std::string> get_setups_attributes = {
-    "name",
     "code",
+    "description",
     "initial_capital",
     "slippage",
     "absolute_brokerage_tax",
@@ -733,8 +718,8 @@ std::string SmarttClient::updateSetup(const ParameterList& parameterList)
 
 const std::vector<std::string> get_financial_transactions_attributes = {
     "financial_transaction_id",
-    "investment_code",
     "brokerage_id",
+    "investment_code",
     "datetime",
     "contribution_or_withdrawal",
     "value",
