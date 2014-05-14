@@ -160,6 +160,7 @@ extern const SmarttTerm NUMBER_OF_STOP_ORDERS_EVENTS;
 extern const SmarttTerm NUMBER_OF_TRADED_STOCKS;
 extern const SmarttTerm NUMBER_OF_TRADES;
 extern const SmarttTerm OFFSET;
+extern const SmarttTerm OPERATIONAL_LIMIT;
 extern const SmarttTerm OPERATIONAL_TAX_COST;
 extern const SmarttTerm OPTION;
 extern const SmarttTerm ORDER_CANCEL_REJECTED;

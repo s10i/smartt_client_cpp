@@ -152,6 +152,7 @@ const SmarttTerm NUMBER_OF_STOP_ORDERS_EVENTS("number_of_stop_orders_events");
 const SmarttTerm NUMBER_OF_TRADED_STOCKS("number_of_traded_stocks");
 const SmarttTerm NUMBER_OF_TRADES("number_of_trades");
 const SmarttTerm OFFSET("offset");
+const SmarttTerm OPERATIONAL_LIMIT("operational_limit");
 const SmarttTerm OPERATIONAL_TAX_COST("operational_tax_cost");
 const SmarttTerm OPTION("option");
 const SmarttTerm ORDER_CANCEL_REJECTED("order_cancel_rejected");

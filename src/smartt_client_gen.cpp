@@ -667,6 +667,7 @@ const std::vector<std::string> get_setups_attributes = {
     "code",
     "description",
     "initial_capital",
+    "operational_limit",
     "slippage",
     "absolute_brokerage_tax",
     "percentual_brokerage_tax",
