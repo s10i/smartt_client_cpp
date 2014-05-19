@@ -12,6 +12,22 @@ Json::Value getClientBrokerages(const ParameterList& parameterList = ParameterLi
 
 std::string insertClientBrokerage(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
+Json::Value getTradingSystems(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+std::string insertTradingSystem(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+std::string updateTradingSystem(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+Json::Value getSetups(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+std::string insertSetup(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+std::string updateSetup(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+Json::Value getInvestments(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+std::string insertInvestment(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
 int sendOrder(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 int cancelOrder(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
@@ -48,8 +64,6 @@ Json::Value getTrades(const ParameterList& parameterList = ParameterList::EMPTY_
 
 unsigned getNumberOfTrades(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
-Json::Value getInvestments(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
-
 Json::Value getReport(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 Json::Value getDailyCumulativePerformance(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
@@ -59,10 +73,6 @@ Json::Value getDailyDrawdown(const ParameterList& parameterList = ParameterList:
 Json::Value getPortfolio(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 Json::Value getAvailableLimits(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
-
-Json::Value getSetups(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
-
-std::string updateSetup(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 Json::Value getFinancialTransactions(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 

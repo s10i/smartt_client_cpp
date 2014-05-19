@@ -135,6 +135,157 @@ std::string SmarttClient::insertClientBrokerage(const ParameterList& parameterLi
 }
 
 
+const std::vector<std::string> get_trading_systems_attributes = {
+    "code",
+    "description"
+};
+
+Json::Value SmarttClient::getTradingSystems(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("get_trading_systems");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    Json::Value returnValue = formatListOfMapsResponseAsJson(response, 0, response.size() - 0, findParameter(parameterList, "return_attributes"), get_trading_systems_attributes);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> insert_trading_system_attributes = {
+    "message"
+};
+
+std::string SmarttClient::insertTradingSystem(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("insert_trading_system");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> update_trading_system_attributes = {
+    "message"
+};
+
+std::string SmarttClient::updateTradingSystem(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("update_trading_system");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> get_setups_attributes = {
+    "code",
+    "description",
+    "initial_capital",
+    "operational_limit",
+    "absolute_brokerage_tax",
+    "percentual_brokerage_tax",
+    "position_trading_tax",
+    "position_liquidation_tax",
+    "position_register_tax",
+    "position_other_taxes",
+    "day_trade_trading_tax",
+    "day_trade_liquidation_tax",
+    "day_trade_register_tax",
+    "day_trade_other_taxes",
+    "iss_tax",
+    "custody_tax"
+};
+
+Json::Value SmarttClient::getSetups(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("get_setups");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    Json::Value returnValue = formatListOfMapsResponseAsJson(response, 0, response.size() - 0, findParameter(parameterList, "return_attributes"), get_setups_attributes);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> insert_setup_attributes = {
+    "message"
+};
+
+std::string SmarttClient::insertSetup(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("insert_setup");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> update_setup_attributes = {
+    "message"
+};
+
+std::string SmarttClient::updateSetup(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("update_setup");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> get_investments_attributes = {
+    "code",
+    "description",
+    "brokerage_id",
+    "trading_system_code",
+    "setup_code",
+    "is_real",
+    "initial_datetime",
+    "final_datetime"
+};
+
+Json::Value SmarttClient::getInvestments(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("get_investments");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    Json::Value returnValue = formatListOfMapsResponseAsJson(response, 0, response.size() - 0, findParameter(parameterList, "return_attributes"), get_investments_attributes);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> insert_investment_attributes = {
+    "message"
+};
+
+std::string SmarttClient::insertInvestment(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("insert_investment");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
 const std::vector<std::string> send_order_attributes = {
     "order_id"
 };
@@ -491,28 +642,6 @@ unsigned SmarttClient::getNumberOfTrades(const ParameterList& parameterList)
 }
 
 
-const std::vector<std::string> get_investments_attributes = {
-    "code",
-    "description",
-    "brokerage_id",
-    "setup_code",
-    "is_real",
-    "initial_datetime",
-    "final_datetime"
-};
-
-Json::Value SmarttClient::getInvestments(const ParameterList& parameterList)
-{
-    vector<string> message;
-    message.push_back("get_investments");
-    appendParameterList(message, parameterList);
-    vector<string> response = smarttFunction(message);
-    Json::Value returnValue = formatListOfMapsResponseAsJson(response, 0, response.size() - 0, findParameter(parameterList, "return_attributes"), get_investments_attributes);
-    return returnValue;
-
-}
-
-
 const std::vector<std::string> get_report_attributes = {
     "brokerage_id",
     "investment_code",
@@ -658,60 +787,6 @@ Json::Value SmarttClient::getAvailableLimits(const ParameterList& parameterList)
     appendParameterList(message, parameterList);
     vector<string> response = smarttFunction(message);
     Json::Value returnValue = formatListOfMapsResponseAsJson(response, 0, response.size() - 0, findParameter(parameterList, "return_attributes"), get_available_limits_attributes);
-    return returnValue;
-
-}
-
-
-const std::vector<std::string> get_setups_attributes = {
-    "code",
-    "description",
-    "initial_capital",
-    "operational_limit",
-    "slippage",
-    "absolute_brokerage_tax",
-    "percentual_brokerage_tax",
-    "position_trading_tax",
-    "position_liquidation_tax",
-    "position_register_tax",
-    "position_income_tax",
-    "position_withholding_income_tax",
-    "position_other_taxes",
-    "day_trade_trading_tax",
-    "day_trade_liquidation_tax",
-    "day_trade_register_tax",
-    "day_trade_income_tax",
-    "day_trade_withholding_income_tax",
-    "day_trade_other_taxes",
-    "iss_tax",
-    "custody_tax",
-    "lease_tax",
-    "income_tax_payment"
-};
-
-Json::Value SmarttClient::getSetups(const ParameterList& parameterList)
-{
-    vector<string> message;
-    message.push_back("get_setups");
-    appendParameterList(message, parameterList);
-    vector<string> response = smarttFunction(message);
-    Json::Value returnValue = formatListOfMapsResponseAsJson(response, 0, response.size() - 0, findParameter(parameterList, "return_attributes"), get_setups_attributes);
-    return returnValue;
-
-}
-
-
-const std::vector<std::string> update_setup_attributes = {
-    "message"
-};
-
-std::string SmarttClient::updateSetup(const ParameterList& parameterList)
-{
-    vector<string> message;
-    message.push_back("update_setup");
-    appendParameterList(message, parameterList);
-    vector<string> response = smarttFunction(message);
-    std::string returnValue = lexical_cast<std::string>(response[0]);
     return returnValue;
 
 }
