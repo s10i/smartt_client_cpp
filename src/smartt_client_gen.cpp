@@ -286,6 +286,22 @@ std::string SmarttClient::insertInvestment(const ParameterList& parameterList)
 }
 
 
+const std::vector<std::string> update_investment_attributes = {
+    "message"
+};
+
+std::string SmarttClient::updateInvestment(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("update_investment");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
 const std::vector<std::string> send_order_attributes = {
     "order_id"
 };

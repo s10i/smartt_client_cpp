@@ -28,6 +28,8 @@ Json::Value getInvestments(const ParameterList& parameterList = ParameterList::E
 
 std::string insertInvestment(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
+std::string updateInvestment(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
 int sendOrder(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 int cancelOrder(const ParameterList& parameterList = ParameterList::EMPTY_LIST);

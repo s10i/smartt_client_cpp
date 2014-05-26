@@ -133,6 +133,7 @@ extern const SmarttTerm NET_DAILY_RETURN;
 extern const SmarttTerm NET_LOSS;
 extern const SmarttTerm NET_PROFIT;
 extern const SmarttTerm NET_RETURN;
+extern const SmarttTerm NEW_BROKERAGE_ID;
 extern const SmarttTerm NEW_CODE;
 extern const SmarttTerm NEW_LIMIT_PRICE;
 extern const SmarttTerm NEW_NUMBER_OF_STOCKS;
