@@ -69,6 +69,7 @@ const std::vector<std::string> get_client_attributes = {
     "registration_datetime",
     "plan",
     "has_customized_strategies",
+    "is_active",
     "plan_expiration_date"
 };
 
@@ -95,23 +96,6 @@ std::string SmarttClient::updateClient(const ParameterList& parameterList)
     appendParameterList(message, parameterList);
     vector<string> response = smarttFunction(message);
     std::string returnValue = lexical_cast<std::string>(response[0]);
-    return returnValue;
-
-}
-
-
-const std::vector<std::string> get_activated_brokerages_attributes = {
-    "id",
-    "name"
-};
-
-Json::Value SmarttClient::getActivatedBrokerages(const ParameterList& parameterList)
-{
-    vector<string> message;
-    message.push_back("get_activated_brokerages");
-    appendParameterList(message, parameterList);
-    vector<string> response = smarttFunction(message);
-    Json::Value returnValue = formatListOfMapsResponseAsJson(response, 0, response.size() - 0, findParameter(parameterList, "return_attributes"), get_activated_brokerages_attributes);
     return returnValue;
 
 }
