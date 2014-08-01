@@ -128,7 +128,6 @@ const SmarttTerm NET_DAILY_RETURN("net_daily_return");
 const SmarttTerm NET_LOSS("net_loss");
 const SmarttTerm NET_PROFIT("net_profit");
 const SmarttTerm NET_RETURN("net_return");
-const SmarttTerm NEW_BROKERAGE_ID("new_brokerage_id");
 const SmarttTerm NEW_CODE("new_code");
 const SmarttTerm NEW_LIMIT_PRICE("new_limit_price");
 const SmarttTerm NEW_NUMBER_OF_STOCKS("new_number_of_stocks");
