@@ -686,7 +686,6 @@ const std::vector<std::string> get_report_attributes = {
     "total_contributions",
     "total_withdraws",
     "initial_capital",
-    "operational_limit",
     "balance",
     "equity",
     "taxes_and_operational_costs",
