@@ -88,7 +88,7 @@ string getSSLErrorString(const string &prefix = "") {
 SSL_CTX* initSSLContext()
 {
     // Client SSL method - it means we are a SSL client connecting to a SSL server
-    const SSL_METHOD *method = SSLv3_client_method();
+    const SSL_METHOD *method = TLSv1_2_client_method();
 
     // Creates a SSL context for the given method (client method in this case)
     SSL_CTX *ssl_context = SSL_CTX_new(method);
@@ -293,6 +293,8 @@ void SmarttSocket::setupSSL()
     if( SSL_set_fd(ssl_, socket_id_) == 0 ) {
         throw SmarttSocketException(getSSLErrorString(), host_, port_);
     }
+
+    SSL_set_tlsext_host_name( ssl_, host_.c_str() );
 
     // Connects to the server issuing the SSL handshake
     if ( SSL_connect(ssl_) == -1 )

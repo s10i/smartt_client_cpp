@@ -74,7 +74,7 @@ vector<string> SmarttClient::smarttFunction(const vector<string> &message) {
     // Check for responses that are errors from the server
     if (response.size() > 0 && response[0] == "ERROR")
     {
-        throw SmarttClientException("Function '" + message[0] + "' error: " + response[1]);
+        throw SmarttClientException("Function '" + message[0] + "' (error code: " + response[1] + ") " + response[2]);
     }
 
     return response;
