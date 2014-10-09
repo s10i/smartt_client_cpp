@@ -4,9 +4,17 @@ std::string logout(const ParameterList& parameterList = ParameterList::EMPTY_LIS
 
 std::string logged(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
+std::string loginApiKey(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
 Json::Value getClient(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 std::string updateClient(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+std::string getApiKeys(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+std::string insertApiKey(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+std::string deleteApiKey(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 Json::Value getActivatedBrokerages(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 

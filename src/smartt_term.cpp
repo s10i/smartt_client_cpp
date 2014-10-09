@@ -47,6 +47,7 @@ const SmarttTerm ABSOLUTE_NUMBER_OF_PROFIT_ELIMINATIONS("absolute_number_of_prof
 const SmarttTerm ABSOLUTE_NUMBER_OF_PROFIT_ELIMINATIONS_OF_LONG_POSITIONS("absolute_number_of_profit_eliminations_of_long_positions");
 const SmarttTerm ABSOLUTE_NUMBER_OF_PROFIT_ELIMINATIONS_OF_SHORT_POSITIONS("absolute_number_of_profit_eliminations_of_short_positions");
 const SmarttTerm ADDRESS("address");
+const SmarttTerm API_KEY("api_key");
 const SmarttTerm AUTO("auto");
 const SmarttTerm AVERAGE_LOSS_IN_LOSS_ELIMINATIONS("average_loss_in_loss_eliminations");
 const SmarttTerm AVERAGE_NOMINAL_PRICE("average_nominal_price");

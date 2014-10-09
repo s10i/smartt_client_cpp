@@ -46,6 +46,22 @@ std::string SmarttClient::logged(const ParameterList& parameterList)
 }
 
 
+const std::vector<std::string> login_api_key_attributes = {
+    "message"
+};
+
+std::string SmarttClient::loginApiKey(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("login_api_key");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
 const std::vector<std::string> get_client_attributes = {
     "natural_person_or_legal_person",
     "name_or_corporate_name",
@@ -93,6 +109,54 @@ std::string SmarttClient::updateClient(const ParameterList& parameterList)
 {
     vector<string> message;
     message.push_back("update_client");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> get_api_keys_attributes = {
+    "api_key"
+};
+
+std::string SmarttClient::getApiKeys(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("get_api_keys");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> insert_api_key_attributes = {
+    "message"
+};
+
+std::string SmarttClient::insertApiKey(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("insert_api_key");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> delete_api_key_attributes = {
+    "message"
+};
+
+std::string SmarttClient::deleteApiKey(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("delete_api_key");
     appendParameterList(message, parameterList);
     vector<string> response = smarttFunction(message);
     std::string returnValue = lexical_cast<std::string>(response[0]);
