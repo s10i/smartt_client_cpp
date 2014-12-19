@@ -116,6 +116,8 @@ extern const SmarttTerm INCOME_TAX_COST;
 extern const SmarttTerm INITIAL_CAPITAL;
 extern const SmarttTerm INITIAL_DATETIME;
 extern const SmarttTerm INVESTMENT_CODE;
+extern const SmarttTerm IP_CLIENT_PARAMS_SAVED;
+extern const SmarttTerm IP_CLIENT_STRATEGY_START;
 extern const SmarttTerm IP_USED_TO_SIGN_UP;
 extern const SmarttTerm IS_ACTIVE;
 extern const SmarttTerm IS_REAL;

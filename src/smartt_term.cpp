@@ -108,6 +108,8 @@ const SmarttTerm INCOME_TAX_COST("income_tax_cost");
 const SmarttTerm INITIAL_CAPITAL("initial_capital");
 const SmarttTerm INITIAL_DATETIME("initial_datetime");
 const SmarttTerm INVESTMENT_CODE("investment_code");
+const SmarttTerm IP_CLIENT_PARAMS_SAVED("ip_client_params_saved");
+const SmarttTerm IP_CLIENT_STRATEGY_START("ip_client_strategy_start");
 const SmarttTerm IP_USED_TO_SIGN_UP("ip_used_to_sign_up");
 const SmarttTerm IS_ACTIVE("is_active");
 const SmarttTerm IS_REAL("is_real");
