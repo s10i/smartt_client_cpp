@@ -167,7 +167,8 @@ std::string SmarttClient::deleteApiKey(const ParameterList& parameterList)
 
 const std::vector<std::string> get_activated_brokerages_attributes = {
     "id",
-    "name"
+    "name",
+    "corporate_name"
 };
 
 Json::Value SmarttClient::getActivatedBrokerages(const ParameterList& parameterList)
@@ -184,7 +185,6 @@ Json::Value SmarttClient::getActivatedBrokerages(const ParameterList& parameterL
 
 const std::vector<std::string> get_client_brokerages_attributes = {
     "brokerage_id",
-    "brokerage_name",
     "cblc_bovespa_code",
     "cblc_bmf_code"
 };

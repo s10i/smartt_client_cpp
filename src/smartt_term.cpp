@@ -56,7 +56,6 @@ const SmarttTerm AVERAGE_PROFIT_IN_PROFIT_ELIMINATIONS("average_profit_in_profit
 const SmarttTerm BALANCE("balance");
 const SmarttTerm BIRTHDAY("birthday");
 const SmarttTerm BROKERAGE_ID("brokerage_id");
-const SmarttTerm BROKERAGE_NAME("brokerage_name");
 const SmarttTerm BROKERAGE_TAX_COST("brokerage_tax_cost");
 const SmarttTerm CANCELED("canceled");
 const SmarttTerm CBLC_BMF_CODE("cblc_bmf_code");
@@ -67,6 +66,7 @@ const SmarttTerm CODE("code");
 const SmarttTerm COMPANY("company");
 const SmarttTerm COMPLEMENT("complement");
 const SmarttTerm CONTRIBUTION_OR_WITHDRAWAL("contribution_or_withdrawal");
+const SmarttTerm CORPORATE_NAME("corporate_name");
 const SmarttTerm COUNTRY("country");
 const SmarttTerm CUSTODY_TAX("custody_tax");
 const SmarttTerm DAILY_CUMULATIVE_PERFORMANCE("daily_cumulative_performance");
