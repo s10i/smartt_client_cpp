@@ -252,6 +252,7 @@ const SmarttTerm TOTAL_LOSS_IN_MAXIMUM_CONSECUTIVE_LOSS_ELIMINATIONS("total_loss
 const SmarttTerm TOTAL_NET_PROFIT("total_net_profit");
 const SmarttTerm TOTAL_PROFIT_IN_MAXIMUM_CONSECUTIVE_PROFIT_ELIMINATIONS("total_profit_in_maximum_consecutive_profit_eliminations");
 const SmarttTerm TOTAL_WITHDRAWS("total_withdraws");
+const SmarttTerm TRADE_ID("trade_id");
 const SmarttTerm TRADE_ID_IN_BROKERAGE("trade_id_in_brokerage");
 const SmarttTerm TRADE_TYPE("trade_type");
 const SmarttTerm TRADING_SYSTEM_CODE("trading_system_code");

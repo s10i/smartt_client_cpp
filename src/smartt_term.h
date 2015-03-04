@@ -260,6 +260,7 @@ extern const SmarttTerm TOTAL_LOSS_IN_MAXIMUM_CONSECUTIVE_LOSS_ELIMINATIONS;
 extern const SmarttTerm TOTAL_NET_PROFIT;
 extern const SmarttTerm TOTAL_PROFIT_IN_MAXIMUM_CONSECUTIVE_PROFIT_ELIMINATIONS;
 extern const SmarttTerm TOTAL_WITHDRAWS;
+extern const SmarttTerm TRADE_ID;
 extern const SmarttTerm TRADE_ID_IN_BROKERAGE;
 extern const SmarttTerm TRADE_TYPE;
 extern const SmarttTerm TRADING_SYSTEM_CODE;

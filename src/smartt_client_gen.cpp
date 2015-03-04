@@ -702,8 +702,9 @@ int SmarttClient::getStopOrderId(const ParameterList& parameterList)
 
 
 const std::vector<std::string> get_trades_attributes = {
-    "order_id",
+    "trade_id",
     "trade_id_in_brokerage",
+    "order_id",
     "brokerage_id",
     "investment_code",
     "is_real",
