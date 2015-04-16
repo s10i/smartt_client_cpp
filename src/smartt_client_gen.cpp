@@ -861,8 +861,8 @@ Json::Value SmarttClient::getDailyDrawdown(const ParameterList& parameterList)
 
 
 const std::vector<std::string> get_portfolio_attributes = {
-    "stock_code",
     "market_name",
+    "stock_code",
     "position_type",
     "number_of_stocks",
     "average_price",
