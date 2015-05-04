@@ -990,3 +990,50 @@ std::string SmarttClient::deleteFinancialTransactions(const ParameterList& param
 }
 
 
+const std::vector<std::string> get_indicators_attributes = {
+    "code",
+    "description",
+    "market_name",
+    "stock_code",
+    "market_name2",
+    "stock_code2",
+    "market_name3",
+    "stock_code3",
+    "datetime",
+    "datetime2",
+    "datetime3",
+    "value",
+    "value2",
+    "value3",
+    "value4",
+    "value5"
+};
+
+Json::Value SmarttClient::getIndicators(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("get_indicators");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    Json::Value returnValue = formatListOfMapsResponseAsJson(response, 0, response.size() - 0, findParameter(parameterList, "return_attributes"), get_indicators_attributes);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> insert_indicator_attributes = {
+    "message"
+};
+
+std::string SmarttClient::insertIndicator(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("insert_indicator");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+

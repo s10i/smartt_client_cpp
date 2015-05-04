@@ -96,3 +96,7 @@ std::string updateFinancialTransaction(const ParameterList& parameterList = Para
 
 std::string deleteFinancialTransactions(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
+Json::Value getIndicators(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+std::string insertIndicator(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
