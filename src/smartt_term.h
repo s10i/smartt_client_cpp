@@ -142,6 +142,7 @@ extern const SmarttTerm MARKET_NAME2;
 extern const SmarttTerm MARKET_NAME3;
 extern const SmarttTerm MAXIMUM_CONSECUTIVE_LOSS_ELIMINATIONS;
 extern const SmarttTerm MAXIMUM_CONSECUTIVE_PROFIT_ELIMINATIONS;
+extern const SmarttTerm MAXIMUM_NUMBER_OF_INDICATORS;
 extern const SmarttTerm MESSAGE;
 extern const SmarttTerm NAME;
 extern const SmarttTerm NAME_OR_CORPORATE_NAME;

@@ -134,6 +134,7 @@ const SmarttTerm MARKET_NAME2("market_name2");
 const SmarttTerm MARKET_NAME3("market_name3");
 const SmarttTerm MAXIMUM_CONSECUTIVE_LOSS_ELIMINATIONS("maximum_consecutive_loss_eliminations");
 const SmarttTerm MAXIMUM_CONSECUTIVE_PROFIT_ELIMINATIONS("maximum_consecutive_profit_eliminations");
+const SmarttTerm MAXIMUM_NUMBER_OF_INDICATORS("maximum_number_of_indicators");
 const SmarttTerm MESSAGE("message");
 const SmarttTerm NAME("name");
 const SmarttTerm NAME_OR_CORPORATE_NAME("name_or_corporate_name");
