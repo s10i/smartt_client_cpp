@@ -50,7 +50,7 @@ public:
 *************************************************************************************************/
 // Class constants
 #define DEFAULT_SMARTT_CLIENT_CONNECT true
-#define DEFAULT_SMARTT_CLIENT_HOST "smarttbot.com"
+#define DEFAULT_SMARTT_CLIENT_HOST "smarttbot-server.smarttbot.com"
 #define DEFAULT_SMARTT_CLIENT_PORT 5060
 #define DEFAULT_SMARTT_CLIENT_USE_SSL true
 
