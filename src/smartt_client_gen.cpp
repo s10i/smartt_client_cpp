@@ -165,6 +165,19 @@ std::string SmarttClient::deleteApiKey(const ParameterList& parameterList)
 }
 
 
+
+Json::Value SmarttClient::getClientNumbers(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("get_client_numbers");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    Json::Value returnValue = formatMapResponseAsJson(response, findParameter(parameterList, "return_attributes"), get_client_numbers_attributes);
+    return returnValue;
+
+}
+
+
 const std::vector<std::string> get_activated_brokerages_attributes = {
     "id",
     "name",

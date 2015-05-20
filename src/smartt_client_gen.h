@@ -16,6 +16,8 @@ std::string insertApiKey(const ParameterList& parameterList = ParameterList::EMP
 
 std::string deleteApiKey(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
+Json::Value getClientNumbers(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
 Json::Value getActivatedBrokerages(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 Json::Value getClientBrokerages(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
