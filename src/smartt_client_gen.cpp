@@ -885,6 +885,22 @@ Json::Value SmarttClient::getPortfolio(const ParameterList& parameterList)
 }
 
 
+const std::vector<std::string> reset_portfolio_attributes = {
+    "message"
+};
+
+std::string SmarttClient::resetPortfolio(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("reset_portfolio");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
 const std::vector<std::string> get_available_limits_attributes = {
     "spot",
     "option",
