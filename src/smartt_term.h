@@ -57,6 +57,7 @@ extern const SmarttTerm ABSOLUTE_NUMBER_OF_PROFIT_ELIMINATIONS_OF_LONG_POSITIONS
 extern const SmarttTerm ABSOLUTE_NUMBER_OF_PROFIT_ELIMINATIONS_OF_SHORT_POSITIONS;
 extern const SmarttTerm ADDRESS;
 extern const SmarttTerm API_KEY;
+extern const SmarttTerm APPROVED;
 extern const SmarttTerm AUTO;
 extern const SmarttTerm AVERAGE_LOSS_IN_LOSS_ELIMINATIONS;
 extern const SmarttTerm AVERAGE_NOMINAL_PRICE;
@@ -201,6 +202,7 @@ extern const SmarttTerm OTHER_TAXES_COST;
 extern const SmarttTerm PAPER;
 extern const SmarttTerm PARTIALLY_EXECUTED;
 extern const SmarttTerm PASSWORD;
+extern const SmarttTerm PENDING;
 extern const SmarttTerm PENDING_CANCEL;
 extern const SmarttTerm PENDING_CHANGE;
 extern const SmarttTerm PENDING_HUNG;

@@ -49,6 +49,7 @@ const SmarttTerm ABSOLUTE_NUMBER_OF_PROFIT_ELIMINATIONS_OF_LONG_POSITIONS("absol
 const SmarttTerm ABSOLUTE_NUMBER_OF_PROFIT_ELIMINATIONS_OF_SHORT_POSITIONS("absolute_number_of_profit_eliminations_of_short_positions");
 const SmarttTerm ADDRESS("address");
 const SmarttTerm API_KEY("api_key");
+const SmarttTerm APPROVED("approved");
 const SmarttTerm AUTO("auto");
 const SmarttTerm AVERAGE_LOSS_IN_LOSS_ELIMINATIONS("average_loss_in_loss_eliminations");
 const SmarttTerm AVERAGE_NOMINAL_PRICE("average_nominal_price");
@@ -193,6 +194,7 @@ const SmarttTerm OTHER_TAXES_COST("other_taxes_cost");
 const SmarttTerm PAPER("paper");
 const SmarttTerm PARTIALLY_EXECUTED("partially_executed");
 const SmarttTerm PASSWORD("password");
+const SmarttTerm PENDING("pending");
 const SmarttTerm PENDING_CANCEL("pending_cancel");
 const SmarttTerm PENDING_CHANGE("pending_change");
 const SmarttTerm PENDING_HUNG("pending_hung");

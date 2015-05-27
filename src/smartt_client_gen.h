@@ -24,6 +24,8 @@ Json::Value getClientBrokerages(const ParameterList& parameterList = ParameterLi
 
 std::string insertClientBrokerage(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
+std::string updateClientBrokerage(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
 Json::Value getTradingSystems(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 std::string insertTradingSystem(const ParameterList& parameterList = ParameterList::EMPTY_LIST);

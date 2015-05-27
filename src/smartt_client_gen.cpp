@@ -199,7 +199,8 @@ Json::Value SmarttClient::getActivatedBrokerages(const ParameterList& parameterL
 const std::vector<std::string> get_client_brokerages_attributes = {
     "brokerage_id",
     "cblc_bovespa_code",
-    "cblc_bmf_code"
+    "cblc_bmf_code",
+    "status"
 };
 
 Json::Value SmarttClient::getClientBrokerages(const ParameterList& parameterList)
@@ -222,6 +223,22 @@ std::string SmarttClient::insertClientBrokerage(const ParameterList& parameterLi
 {
     vector<string> message;
     message.push_back("insert_client_brokerage");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> update_client_brokerage_attributes = {
+    "message"
+};
+
+std::string SmarttClient::updateClientBrokerage(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("update_client_brokerage");
     appendParameterList(message, parameterList);
     vector<string> response = smarttFunction(message);
     std::string returnValue = lexical_cast<std::string>(response[0]);
