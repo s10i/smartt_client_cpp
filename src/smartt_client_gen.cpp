@@ -299,7 +299,6 @@ std::string SmarttClient::updateTradingSystem(const ParameterList& parameterList
 const std::vector<std::string> get_setups_attributes = {
     "code",
     "description",
-    "initial_capital",
     "operational_limit",
     "spot_absolute_brokerage_tax",
     "spot_percentual_brokerage_tax",
@@ -374,6 +373,7 @@ const std::vector<std::string> get_investments_attributes = {
     "trading_system_code",
     "setup_code",
     "is_real",
+    "initial_capital",
     "initial_datetime",
     "final_datetime"
 };
