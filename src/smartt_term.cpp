@@ -49,6 +49,7 @@ const SmarttTerm ABSOLUTE_NUMBER_OF_PROFIT_ELIMINATIONS_OF_LONG_POSITIONS("absol
 const SmarttTerm ABSOLUTE_NUMBER_OF_PROFIT_ELIMINATIONS_OF_SHORT_POSITIONS("absolute_number_of_profit_eliminations_of_short_positions");
 const SmarttTerm ADDRESS("address");
 const SmarttTerm API_KEY("api_key");
+const SmarttTerm APPROVAL_DATETIME("approval_datetime");
 const SmarttTerm APPROVED("approved");
 const SmarttTerm AUTO("auto");
 const SmarttTerm AVERAGE_LOSS_IN_LOSS_ELIMINATIONS("average_loss_in_loss_eliminations");
@@ -115,6 +116,7 @@ const SmarttTerm INITIAL_CAPITAL("initial_capital");
 const SmarttTerm INITIAL_DATETIME("initial_datetime");
 const SmarttTerm INITIAL_DATETIME2("initial_datetime2");
 const SmarttTerm INITIAL_DATETIME3("initial_datetime3");
+const SmarttTerm INSERTION_DATETIME("insertion_datetime");
 const SmarttTerm INVESTMENT_CODE("investment_code");
 const SmarttTerm IP_CLIENT_PARAMS_SAVED("ip_client_params_saved");
 const SmarttTerm IP_CLIENT_STRATEGY_START("ip_client_strategy_start");

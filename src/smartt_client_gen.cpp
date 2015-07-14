@@ -200,7 +200,9 @@ const std::vector<std::string> get_client_brokerages_attributes = {
     "brokerage_id",
     "cblc_bovespa_code",
     "cblc_bmf_code",
-    "status"
+    "insertion_datetime",
+    "status",
+    "approval_datetime"
 };
 
 Json::Value SmarttClient::getClientBrokerages(const ParameterList& parameterList)

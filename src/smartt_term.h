@@ -57,6 +57,7 @@ extern const SmarttTerm ABSOLUTE_NUMBER_OF_PROFIT_ELIMINATIONS_OF_LONG_POSITIONS
 extern const SmarttTerm ABSOLUTE_NUMBER_OF_PROFIT_ELIMINATIONS_OF_SHORT_POSITIONS;
 extern const SmarttTerm ADDRESS;
 extern const SmarttTerm API_KEY;
+extern const SmarttTerm APPROVAL_DATETIME;
 extern const SmarttTerm APPROVED;
 extern const SmarttTerm AUTO;
 extern const SmarttTerm AVERAGE_LOSS_IN_LOSS_ELIMINATIONS;
@@ -123,6 +124,7 @@ extern const SmarttTerm INITIAL_CAPITAL;
 extern const SmarttTerm INITIAL_DATETIME;
 extern const SmarttTerm INITIAL_DATETIME2;
 extern const SmarttTerm INITIAL_DATETIME3;
+extern const SmarttTerm INSERTION_DATETIME;
 extern const SmarttTerm INVESTMENT_CODE;
 extern const SmarttTerm IP_CLIENT_PARAMS_SAVED;
 extern const SmarttTerm IP_CLIENT_STRATEGY_START;
