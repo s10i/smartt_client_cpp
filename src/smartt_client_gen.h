@@ -88,6 +88,8 @@ Json::Value getDailyDrawdown(const ParameterList& parameterList = ParameterList:
 
 Json::Value getPortfolio(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
+std::string cancelAllPendingOrders(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
 std::string resetPortfolio(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 Json::Value getAvailableLimits(const ParameterList& parameterList = ParameterList::EMPTY_LIST);

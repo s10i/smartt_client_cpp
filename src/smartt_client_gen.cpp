@@ -917,6 +917,22 @@ Json::Value SmarttClient::getPortfolio(const ParameterList& parameterList)
 }
 
 
+const std::vector<std::string> cancel_all_pending_orders_attributes = {
+    "message"
+};
+
+std::string SmarttClient::cancelAllPendingOrders(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("cancel_all_pending_orders");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
 const std::vector<std::string> reset_portfolio_attributes = {
     "message"
 };
