@@ -933,6 +933,22 @@ std::string SmarttClient::cancelAllPendingOrders(const ParameterList& parameterL
 }
 
 
+const std::vector<std::string> cancel_all_pending_stop_orders_attributes = {
+    "message"
+};
+
+std::string SmarttClient::cancelAllPendingStopOrders(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("cancel_all_pending_stop_orders");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
 const std::vector<std::string> reset_portfolio_attributes = {
     "message"
 };
