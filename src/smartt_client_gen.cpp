@@ -165,6 +165,11 @@ std::string SmarttClient::deleteApiKey(const ParameterList& parameterList)
 }
 
 
+const std::vector<std::string> get_client_numbers_attributes = {
+    "number_of_orders_executed_on_bovespa",
+    "number_of_minis_traded_on_bmf",
+    "number_of_contracts_traded_on_bmf"
+};
 
 Json::Value SmarttClient::getClientNumbers(const ParameterList& parameterList)
 {
@@ -918,48 +923,48 @@ Json::Value SmarttClient::getPortfolio(const ParameterList& parameterList)
 
 
 const std::vector<std::string> cancel_all_pending_orders_attributes = {
-    "message"
+    "order_ids"
 };
 
-std::string SmarttClient::cancelAllPendingOrders(const ParameterList& parameterList)
+int SmarttClient::cancelAllPendingOrders(const ParameterList& parameterList)
 {
     vector<string> message;
     message.push_back("cancel_all_pending_orders");
     appendParameterList(message, parameterList);
     vector<string> response = smarttFunction(message);
-    std::string returnValue = lexical_cast<std::string>(response[0]);
+    int returnValue = lexical_cast<int>(response[0]);
     return returnValue;
 
 }
 
 
 const std::vector<std::string> cancel_all_pending_stop_orders_attributes = {
-    "message"
+    "stop_order_ids"
 };
 
-std::string SmarttClient::cancelAllPendingStopOrders(const ParameterList& parameterList)
+int SmarttClient::cancelAllPendingStopOrders(const ParameterList& parameterList)
 {
     vector<string> message;
     message.push_back("cancel_all_pending_stop_orders");
     appendParameterList(message, parameterList);
     vector<string> response = smarttFunction(message);
-    std::string returnValue = lexical_cast<std::string>(response[0]);
+    int returnValue = lexical_cast<int>(response[0]);
     return returnValue;
 
 }
 
 
 const std::vector<std::string> reset_portfolio_attributes = {
-    "message"
+    "order_ids"
 };
 
-std::string SmarttClient::resetPortfolio(const ParameterList& parameterList)
+int SmarttClient::resetPortfolio(const ParameterList& parameterList)
 {
     vector<string> message;
     message.push_back("reset_portfolio");
     appendParameterList(message, parameterList);
     vector<string> response = smarttFunction(message);
-    std::string returnValue = lexical_cast<std::string>(response[0]);
+    int returnValue = lexical_cast<int>(response[0]);
     return returnValue;
 
 }
