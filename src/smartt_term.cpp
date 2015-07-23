@@ -122,6 +122,7 @@ const SmarttTerm IP_CLIENT_PARAMS_SAVED("ip_client_params_saved");
 const SmarttTerm IP_CLIENT_STRATEGY_START("ip_client_strategy_start");
 const SmarttTerm IP_USED_TO_SIGN_UP("ip_used_to_sign_up");
 const SmarttTerm IS_ACTIVE("is_active");
+const SmarttTerm IS_MARKET_OPEN("is_market_open");
 const SmarttTerm IS_MARKET_ORDER("is_market_order");
 const SmarttTerm IS_REAL("is_real");
 const SmarttTerm ISS_TAX("iss_tax");

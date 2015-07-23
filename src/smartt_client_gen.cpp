@@ -903,7 +903,8 @@ const std::vector<std::string> get_portfolio_attributes = {
     "position_type",
     "number_of_stocks",
     "average_price",
-    "financial_volume"
+    "financial_volume",
+    "is_market_open"
 };
 
 Json::Value SmarttClient::getPortfolio(const ParameterList& parameterList)
