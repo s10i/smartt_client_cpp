@@ -115,6 +115,7 @@ extern const SmarttTerm GROSS_LOSS;
 extern const SmarttTerm GROSS_PROFIT;
 extern const SmarttTerm GROSS_RETURN;
 extern const SmarttTerm HAS_CUSTOMIZED_STRATEGIES;
+extern const SmarttTerm HAS_PENDING_RESET_ORDERS;
 extern const SmarttTerm HUNG;
 extern const SmarttTerm IBOV_CONTRACT_DAY_TRADE_BROKERAGE_TAX;
 extern const SmarttTerm IBOV_MINI_DAY_TRADE_BROKERAGE_TAX;

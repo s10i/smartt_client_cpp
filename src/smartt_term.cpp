@@ -107,6 +107,7 @@ const SmarttTerm GROSS_LOSS("gross_loss");
 const SmarttTerm GROSS_PROFIT("gross_profit");
 const SmarttTerm GROSS_RETURN("gross_return");
 const SmarttTerm HAS_CUSTOMIZED_STRATEGIES("has_customized_strategies");
+const SmarttTerm HAS_PENDING_RESET_ORDERS("has_pending_reset_orders");
 const SmarttTerm HUNG("hung");
 const SmarttTerm IBOV_CONTRACT_DAY_TRADE_BROKERAGE_TAX("ibov_contract_day_trade_brokerage_tax");
 const SmarttTerm IBOV_MINI_DAY_TRADE_BROKERAGE_TAX("ibov_mini_day_trade_brokerage_tax");
