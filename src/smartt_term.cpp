@@ -232,6 +232,7 @@ const SmarttTerm RECEIVED("received");
 const SmarttTerm REGISTER_TAX_COST("register_tax_cost");
 const SmarttTerm REGISTRATION_DATETIME("registration_datetime");
 const SmarttTerm REJECTED("rejected");
+const SmarttTerm RESULT("result");
 const SmarttTerm RETURN_ATTRIBUTES("return_attributes");
 const SmarttTerm REVERSAL("reversal");
 const SmarttTerm S10I_LOGIN("s10i_login");
@@ -289,5 +290,6 @@ const SmarttTerm VALUE2("value2");
 const SmarttTerm VALUE3("value3");
 const SmarttTerm VALUE4("value4");
 const SmarttTerm VALUE5("value5");
+const SmarttTerm VARIATION("variation");
 const SmarttTerm WITHHOLDING_INCOME_TAX_COST("withholding_income_tax_cost");
 }

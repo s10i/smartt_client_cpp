@@ -240,6 +240,7 @@ extern const SmarttTerm RECEIVED;
 extern const SmarttTerm REGISTER_TAX_COST;
 extern const SmarttTerm REGISTRATION_DATETIME;
 extern const SmarttTerm REJECTED;
+extern const SmarttTerm RESULT;
 extern const SmarttTerm RETURN_ATTRIBUTES;
 extern const SmarttTerm REVERSAL;
 extern const SmarttTerm S10I_LOGIN;
@@ -297,6 +298,7 @@ extern const SmarttTerm VALUE2;
 extern const SmarttTerm VALUE3;
 extern const SmarttTerm VALUE4;
 extern const SmarttTerm VALUE5;
+extern const SmarttTerm VARIATION;
 extern const SmarttTerm WITHHOLDING_INCOME_TAX_COST;
 }
 
