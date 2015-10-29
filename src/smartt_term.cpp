@@ -59,6 +59,7 @@ const SmarttTerm AVERAGE_PROFIT_IN_PROFIT_ELIMINATIONS("average_profit_in_profit
 const SmarttTerm BALANCE("balance");
 const SmarttTerm BIRTHDAY("birthday");
 const SmarttTerm BROKERAGE_ID("brokerage_id");
+const SmarttTerm BROKERAGE_OFFICE_ID("brokerage_office_id");
 const SmarttTerm BROKERAGE_TAX_COST("brokerage_tax_cost");
 const SmarttTerm CANCELED("canceled");
 const SmarttTerm CBLC_BMF_CODE("cblc_bmf_code");

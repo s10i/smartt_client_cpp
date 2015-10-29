@@ -67,6 +67,7 @@ extern const SmarttTerm AVERAGE_PROFIT_IN_PROFIT_ELIMINATIONS;
 extern const SmarttTerm BALANCE;
 extern const SmarttTerm BIRTHDAY;
 extern const SmarttTerm BROKERAGE_ID;
+extern const SmarttTerm BROKERAGE_OFFICE_ID;
 extern const SmarttTerm BROKERAGE_TAX_COST;
 extern const SmarttTerm CANCELED;
 extern const SmarttTerm CBLC_BMF_CODE;
