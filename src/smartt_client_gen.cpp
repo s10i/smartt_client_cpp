@@ -588,6 +588,22 @@ int SmarttClient::getOrderId(const ParameterList& parameterList)
 }
 
 
+const std::vector<std::string> insert_external_order_attributes = {
+    "order_id"
+};
+
+int SmarttClient::insertExternalOrder(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("insert_external_order");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    int returnValue = lexical_cast<int>(response[1]);
+    return returnValue;
+
+}
+
+
 const std::vector<std::string> send_stop_order_attributes = {
     "stop_order_id"
 };
