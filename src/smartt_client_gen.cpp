@@ -604,6 +604,38 @@ int SmarttClient::insertExternalOrder(const ParameterList& parameterList)
 }
 
 
+const std::vector<std::string> update_external_order_attributes = {
+    "order_id"
+};
+
+int SmarttClient::updateExternalOrder(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("update_external_order");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    int returnValue = lexical_cast<int>(response[1]);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> delete_external_orders_attributes = {
+    "message"
+};
+
+std::string SmarttClient::deleteExternalOrders(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("delete_external_orders");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
 const std::vector<std::string> send_stop_order_attributes = {
     "stop_order_id"
 };

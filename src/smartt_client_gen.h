@@ -62,6 +62,10 @@ int getOrderId(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 int insertExternalOrder(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
+int updateExternalOrder(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+std::string deleteExternalOrders(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
 int sendStopOrder(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 int cancelStopOrder(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
