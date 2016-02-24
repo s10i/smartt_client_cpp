@@ -62,6 +62,22 @@ std::string SmarttClient::loginApiKey(const ParameterList& parameterList)
 }
 
 
+const std::vector<std::string> check_password_attributes = {
+    "message"
+};
+
+std::string SmarttClient::checkPassword(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("check_password");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
 const std::vector<std::string> get_client_attributes = {
     "natural_person_or_legal_person",
     "name_or_corporate_name",
@@ -247,6 +263,22 @@ std::string SmarttClient::updateClientBrokerage(const ParameterList& parameterLi
 {
     vector<string> message;
     message.push_back("update_client_brokerage");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> delete_client_brokerages_attributes = {
+    "message"
+};
+
+std::string SmarttClient::deleteClientBrokerages(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("delete_client_brokerages");
     appendParameterList(message, parameterList);
     vector<string> response = smarttFunction(message);
     std::string returnValue = lexical_cast<std::string>(response[0]);
@@ -851,6 +883,7 @@ const std::vector<std::string> get_report_attributes = {
     "balance",
     "equity",
     "taxes_and_operational_costs",
+    "today_gross_result",
     "gross_return",
     "gross_daily_return",
     "gross_annualized_return",

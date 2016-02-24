@@ -281,6 +281,7 @@ extern const SmarttTerm STRATEGY_ID;
 extern const SmarttTerm SUSPENDED;
 extern const SmarttTerm TAXES_AND_OPERATIONAL_COSTS;
 extern const SmarttTerm TODAY;
+extern const SmarttTerm TODAY_GROSS_RESULT;
 extern const SmarttTerm TOTAL_CONTRIBUTIONS;
 extern const SmarttTerm TOTAL_GROSS_PROFIT;
 extern const SmarttTerm TOTAL_LOSS_IN_MAXIMUM_CONSECUTIVE_LOSS_ELIMINATIONS;

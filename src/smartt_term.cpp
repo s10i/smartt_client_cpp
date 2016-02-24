@@ -273,6 +273,7 @@ const SmarttTerm STRATEGY_ID("strategy_id");
 const SmarttTerm SUSPENDED("suspended");
 const SmarttTerm TAXES_AND_OPERATIONAL_COSTS("taxes_and_operational_costs");
 const SmarttTerm TODAY("today");
+const SmarttTerm TODAY_GROSS_RESULT("today_gross_result");
 const SmarttTerm TOTAL_CONTRIBUTIONS("total_contributions");
 const SmarttTerm TOTAL_GROSS_PROFIT("total_gross_profit");
 const SmarttTerm TOTAL_LOSS_IN_MAXIMUM_CONSECUTIVE_LOSS_ELIMINATIONS("total_loss_in_maximum_consecutive_loss_eliminations");
