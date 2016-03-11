@@ -528,6 +528,7 @@ const std::vector<std::string> get_orders_attributes = {
     "number_of_traded_stocks",
     "average_nominal_price",
     "status",
+    "is_pending",
     "brokerage_tax_cost",
     "iss_tax_cost",
     "entry_exit_or_reversal",
@@ -668,6 +669,22 @@ std::string SmarttClient::deleteExternalOrders(const ParameterList& parameterLis
 }
 
 
+const std::vector<std::string> insert_backtesting_orders_attributes = {
+    "order_id"
+};
+
+int SmarttClient::insertBacktestingOrders(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("insert_backtesting_orders");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    int returnValue = lexical_cast<int>(response[1]);
+    return returnValue;
+
+}
+
+
 const std::vector<std::string> send_stop_order_attributes = {
     "stop_order_id"
 };
@@ -732,6 +749,7 @@ const std::vector<std::string> get_stop_orders_attributes = {
     "limit_price",
     "validity",
     "status",
+    "is_pending",
     "entry_exit_or_reversal",
     "sent_order_id"
 };

@@ -135,6 +135,7 @@ extern const SmarttTerm IP_USED_TO_SIGN_UP;
 extern const SmarttTerm IS_ACTIVE;
 extern const SmarttTerm IS_MARKET_OPEN;
 extern const SmarttTerm IS_MARKET_ORDER;
+extern const SmarttTerm IS_PENDING;
 extern const SmarttTerm IS_REAL;
 extern const SmarttTerm ISS_TAX;
 extern const SmarttTerm ISS_TAX_COST;

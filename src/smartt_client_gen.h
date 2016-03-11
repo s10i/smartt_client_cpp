@@ -70,6 +70,8 @@ int updateExternalOrder(const ParameterList& parameterList = ParameterList::EMPT
 
 std::string deleteExternalOrders(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
+int insertBacktestingOrders(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
 int sendStopOrder(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 int cancelStopOrder(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
