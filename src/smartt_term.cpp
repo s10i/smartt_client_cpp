@@ -131,6 +131,7 @@ const SmarttTerm IS_ACTIVE("is_active");
 const SmarttTerm IS_MARKET_OPEN("is_market_open");
 const SmarttTerm IS_MARKET_ORDER("is_market_order");
 const SmarttTerm IS_PENDING("is_pending");
+const SmarttTerm IS_PLAYABLE("is_playable");
 const SmarttTerm IS_REAL("is_real");
 const SmarttTerm ISS_TAX("iss_tax");
 const SmarttTerm ISS_TAX_COST("iss_tax_cost");

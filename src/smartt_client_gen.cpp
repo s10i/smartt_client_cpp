@@ -419,7 +419,8 @@ const std::vector<std::string> get_investments_attributes = {
     "is_real",
     "initial_capital",
     "initial_datetime",
-    "final_datetime"
+    "final_datetime",
+    "is_playable"
 };
 
 Json::Value SmarttClient::getInvestments(const ParameterList& parameterList)
