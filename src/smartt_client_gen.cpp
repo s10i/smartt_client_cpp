@@ -221,6 +221,49 @@ Json::Value SmarttClient::getActivatedBrokerages(const ParameterList& parameterL
 }
 
 
+const std::vector<std::string> get_brokerage_offices_attributes = {
+    "brokerage_office_id",
+    "brokerage_id",
+    "corporate_name",
+    "autonomous_agent_name",
+    "email",
+    "city",
+    "state",
+    "main_phone",
+    "secondary_phone",
+    "insertion_datetime",
+    "is_already_known",
+    "is_already_using"
+};
+
+Json::Value SmarttClient::getBrokerageOffices(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("get_brokerage_offices");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    Json::Value returnValue = formatListOfMapsResponseAsJson(response, 0, response.size() - 0, findParameter(parameterList, "return_attributes"), get_brokerage_offices_attributes);
+    return returnValue;
+
+}
+
+
+const std::vector<std::string> insert_brokerage_office_attributes = {
+    "message"
+};
+
+std::string SmarttClient::insertBrokerageOffice(const ParameterList& parameterList)
+{
+    vector<string> message;
+    message.push_back("insert_brokerage_office");
+    appendParameterList(message, parameterList);
+    vector<string> response = smarttFunction(message);
+    std::string returnValue = lexical_cast<std::string>(response[0]);
+    return returnValue;
+
+}
+
+
 const std::vector<std::string> get_client_brokerages_attributes = {
     "brokerage_id",
     "brokerage_office_id",

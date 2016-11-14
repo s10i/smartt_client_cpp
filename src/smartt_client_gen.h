@@ -22,6 +22,10 @@ Json::Value getClientNumbers(const ParameterList& parameterList = ParameterList:
 
 Json::Value getActivatedBrokerages(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
+Json::Value getBrokerageOffices(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
+std::string insertBrokerageOffice(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
+
 Json::Value getClientBrokerages(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
 
 std::string insertClientBrokerage(const ParameterList& parameterList = ParameterList::EMPTY_LIST);
