@@ -246,6 +246,7 @@ extern const SmarttTerm POSITION_TYPE;
 extern const SmarttTerm POSTAL_CODE;
 extern const SmarttTerm PREVIOUS_FINAL_STATE;
 extern const SmarttTerm PRICE;
+extern const SmarttTerm PROCESSING;
 extern const SmarttTerm PROFIT_FACTOR;
 extern const SmarttTerm REASON;
 extern const SmarttTerm RECEIVED;

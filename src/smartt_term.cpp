@@ -238,6 +238,7 @@ const SmarttTerm POSITION_TYPE("position_type");
 const SmarttTerm POSTAL_CODE("postal_code");
 const SmarttTerm PREVIOUS_FINAL_STATE("previous_final_state");
 const SmarttTerm PRICE("price");
+const SmarttTerm PROCESSING("processing");
 const SmarttTerm PROFIT_FACTOR("profit_factor");
 const SmarttTerm REASON("reason");
 const SmarttTerm RECEIVED("received");
